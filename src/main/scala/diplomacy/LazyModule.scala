@@ -110,7 +110,7 @@ abstract class LazyModule()(implicit val p: Parameters) {
     * This is effectively doing the same thing as [[LazyModuleImp.instantiate]], but
     * without constructing any [[Module]]'s
     */
-    /*
+    
     //eliminato delle linee di codice sembra aver tolto l'errore di compilazione, funzionerà nel modo corretto?
   protected[diplomacy] def cloneDangles(): List[Dangle] = {
     children.foreach(c => require(c.cloneProto.isDefined, s"${c.info}, ${c.parent.get.info}"))
@@ -128,7 +128,7 @@ abstract class LazyModule()(implicit val p: Parameters) {
     }
     dangles
   }
-  */
+  
   /** Whether to omit generating the GraphML for this [[LazyModule]].
     *
     * Recursively checks whether all [[BaseNode]]s and children [[LazyModule]]s should omit GraphML
@@ -309,7 +309,7 @@ sealed trait LazyModuleImpLike extends RawModule {
     // 2. return [[Dangle]]s from each module.
     val childDangles = wrapper.children.reverse.flatMap { c =>
       implicit val sourceInfo: SourceInfo = c.info
-      /*9
+      
       c.cloneProto.map { cp =>
         // If the child is a clone, then recursively set cloneProto of its children as well
         def assignCloneProtos(bases: Seq[LazyModule], clones: Seq[LazyModule]): Unit = {
@@ -338,7 +338,7 @@ sealed trait LazyModuleImpLike extends RawModule {
         val mod = Module(c.module)
         mod.dangles
       }
-      */
+      
       val mod = Module(c.module)
         mod.dangles
     }

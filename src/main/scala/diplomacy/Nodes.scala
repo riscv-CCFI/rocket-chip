@@ -1216,7 +1216,7 @@ sealed abstract class MixedNode[DI, UI, EI, BI <: Data, DO, UO, EO, BO <: Data](
       sink   = HalfEdge(n.serial, j),
       flipped= false,
       name   = wirePrefix + "out",
-      data   = bundleOut(i))
+      dataOpt   = Some(bundleOut(i)))
   }
 
   /** Create the [[Dangle]]s which describe the connections from this node input from other nodes outputs. */
@@ -1226,7 +1226,7 @@ sealed abstract class MixedNode[DI, UI, EI, BI <: Data, DO, UO, EO, BO <: Data](
       sink   = HalfEdge(serial, i),
       flipped= true,
       name   = wirePrefix + "in",
-      data   = bundleIn(i))
+      dataOpt   = Some(bundleIn(i)))
   }
 
   private[diplomacy] var instantiated = false
