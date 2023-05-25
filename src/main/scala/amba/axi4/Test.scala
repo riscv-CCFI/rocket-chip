@@ -107,7 +107,8 @@ class AXI4FuzzMaster(txns: Int)(implicit p: Parameters) extends LazyModule with 
     := model.node
     := fuzz.node)
 
-  lazy val module = new LazyModuleImp(this) {
+  lazy val module = new Impl
+  class Impl extends LazyModuleImp(this) {
     val io = IO(new Bundle {
       val finished = Bool(OUTPUT)
     })
