@@ -7,10 +7,11 @@ import Chisel.ImplicitConversions._
 import freechips.rocketchip.amba._
 import freechips.rocketchip.config.Parameters
 import freechips.rocketchip.diplomacy._
+import freechips.rocketchip.diplomaticobjectmodel.model.OMSRAM
 import freechips.rocketchip.tile.{CoreBundle, LookupByHartId}
 import freechips.rocketchip.tilelink._
 import freechips.rocketchip.util._
-import freechips.rocketchip.util.property
+import freechips.rocketchip.util.property._
 import chisel3.{DontCare, WireInit, dontTouch, withClock}
 import chisel3.experimental.{chiselName, NoChiselNamePrefix}
 import chisel3.internal.sourceinfo.SourceInfo
@@ -60,7 +61,7 @@ class DCacheDataArray(implicit p: Parameters) extends L1HellaCacheModule()(p) {
       )
   }
 
-  val rdata = for ((array , i) <- data_arrays zipWithIndex) yield {
+  val rdata = for (((array, omSRAM), i) <- data_arrays zipWithIndex) yield {
     val valid = io.req.valid && (Bool(data_arrays.size == 1) || io.req.bits.wordMask(i))
     when (valid && io.req.bits.write) {
       val wMaskSlice = (0 until wMask.size).filter(j => i % (wordBits/subWordBits) == (j % (wordBytes/eccBytes)) / (subWordBytes/eccBytes)).map(wMask(_))
@@ -83,6 +84,7 @@ class DCacheMetadataReq(implicit p: Parameters) extends L1HellaCacheBundle()(p) 
 
 class DCache(staticIdForMetadataUseOnly: Int, val crossing: ClockCrossingType)(implicit p: Parameters) extends HellaCache(staticIdForMetadataUseOnly)(p) {
   override lazy val module = new DCacheModule(this)
+  override def getOMSRAMs(): Seq[OMSRAM] = Seq(module.dcacheImpl.omSRAM) ++ module.dcacheImpl.data.data_arrays.map(_._2)
 }
 
 class DCacheTLBPort(implicit p: Parameters) extends CoreBundle()(p) {
@@ -119,7 +121,7 @@ class DCacheModule(outer: DCache) extends HellaCacheModule(outer) {
   val replacer = ReplacementPolicy.fromString(cacheParams.replacementPolicy, nWays)
   val metaArb = Module(new Arbiter(new DCacheMetadataReq, 8) with InlineInstance)
 
-  val tag_array = DescribedSRAM(
+  val (tag_array, omSRAM) = DescribedSRAM(
     name = "tag_array",
     desc = "DCache Tag Array",
     size = nSets,
@@ -180,15 +182,13 @@ class DCacheModule(outer: DCache) extends HellaCacheModule(outer) {
     s0_tlb_req.vaddr := s0_req.addr
     s0_tlb_req.size := s0_req.size
     s0_tlb_req.cmd := s0_req.cmd
-    s0_tlb_req.prv := s0_req.dprv
-    s0_tlb_req.v := s0_req.dv
   }
   val s1_tlb_req = RegEnable(s0_tlb_req, s0_clk_en || tlb_port.req.valid)
 
   val s1_read = isRead(s1_req.cmd)
   val s1_write = isWrite(s1_req.cmd)
   val s1_readwrite = s1_read || s1_write
-  val s1_sfence = s1_req.cmd === M_SFENCE || s1_req.cmd === M_HFENCEV || s1_req.cmd === M_HFENCEG
+  val s1_sfence = s1_req.cmd === M_SFENCE
   val s1_flush_line = s1_req.cmd === M_FLUSH_ALL && s1_req.size(0)
   val s1_flush_valid = Reg(Bool())
   val s1_waw_hazard = Wire(Bool())
@@ -258,8 +258,6 @@ class DCacheModule(outer: DCache) extends HellaCacheModule(outer) {
   tlb.io.sfence.bits.rs2 := s1_req.size(1)
   tlb.io.sfence.bits.asid := io.cpu.s1_data.data
   tlb.io.sfence.bits.addr := s1_req.addr
-  tlb.io.sfence.bits.hv := s1_req.cmd === M_HFENCEV
-  tlb.io.sfence.bits.hg := s1_req.cmd === M_HFENCEG
 
   tlb_port.req.ready := clock_en_reg
   tlb_port.s1_resp := tlb.io.resp
@@ -892,8 +890,6 @@ class DCacheModule(outer: DCache) extends HellaCacheModule(outer) {
   io.cpu.resp.bits.replay := false
   io.cpu.s2_uncached := s2_uncached && !s2_hit
   io.cpu.s2_paddr := s2_req.addr
-  io.cpu.s2_gpa := s2_tlb_xcpt.gpa
-  io.cpu.s2_gpa_is_pte := s2_tlb_xcpt.gpa_is_pte
 
   // report whether there are any outstanding accesses.  disregard any
   // slave-port accesses, since they don't affect local memory ordering.
@@ -1107,38 +1103,38 @@ class DCacheModule(outer: DCache) extends HellaCacheModule(outer) {
 
   if (usingDataScratchpad) {
     val data_error_cover = Seq(
-      property.CoverBoolean(!data_error, Seq("no_data_error")),
-      property.CoverBoolean(data_error && !data_error_uncorrectable, Seq("data_correctable_error")),
-      property.CoverBoolean(data_error && data_error_uncorrectable, Seq("data_uncorrectable_error")))
+      CoverBoolean(!data_error, Seq("no_data_error")),
+      CoverBoolean(data_error && !data_error_uncorrectable, Seq("data_correctable_error")),
+      CoverBoolean(data_error && data_error_uncorrectable, Seq("data_uncorrectable_error")))
     val request_source = Seq(
-      property.CoverBoolean(s2_isSlavePortAccess, Seq("from_TL")),
-      property.CoverBoolean(!s2_isSlavePortAccess, Seq("from_CPU")))
+      CoverBoolean(s2_isSlavePortAccess, Seq("from_TL")),
+      CoverBoolean(!s2_isSlavePortAccess, Seq("from_CPU")))
 
-    property.cover(new property.CrossProperty(
+    cover(new CrossProperty(
       Seq(data_error_cover, request_source),
       Seq(),
       "MemorySystem;;Scratchpad Memory Bit Flip Cross Covers"))
   } else {
 
     val data_error_type = Seq(
-      property.CoverBoolean(!s2_valid_data_error, Seq("no_data_error")),
-      property.CoverBoolean(s2_valid_data_error && !s2_data_error_uncorrectable, Seq("data_correctable_error")),
-      property.CoverBoolean(s2_valid_data_error && s2_data_error_uncorrectable, Seq("data_uncorrectable_error")))
+      CoverBoolean(!s2_valid_data_error, Seq("no_data_error")),
+      CoverBoolean(s2_valid_data_error && !s2_data_error_uncorrectable, Seq("data_correctable_error")),
+      CoverBoolean(s2_valid_data_error && s2_data_error_uncorrectable, Seq("data_uncorrectable_error")))
     val data_error_dirty = Seq(
-      property.CoverBoolean(!s2_victim_dirty, Seq("data_clean")),
-      property.CoverBoolean(s2_victim_dirty, Seq("data_dirty")))
+      CoverBoolean(!s2_victim_dirty, Seq("data_clean")),
+      CoverBoolean(s2_victim_dirty, Seq("data_dirty")))
     val request_source = if (supports_flush) {
         Seq(
-          property.CoverBoolean(!flushing, Seq("access")),
-          property.CoverBoolean(flushing, Seq("during_flush")))
+          CoverBoolean(!flushing, Seq("access")),
+          CoverBoolean(flushing, Seq("during_flush")))
       } else {
-        Seq(property.CoverBoolean(true.B, Seq("never_flush")))
+        Seq(CoverBoolean(true.B, Seq("never_flush")))
       }
     val tag_error_cover = Seq(
-      property.CoverBoolean( !s2_meta_error, Seq("no_tag_error")),
-      property.CoverBoolean( s2_meta_error && !s2_meta_error_uncorrectable, Seq("tag_correctable_error")),
-      property.CoverBoolean( s2_meta_error && s2_meta_error_uncorrectable, Seq("tag_uncorrectable_error")))
-    property.cover(new property.CrossProperty(
+      CoverBoolean( !s2_meta_error, Seq("no_tag_error")),
+      CoverBoolean( s2_meta_error && !s2_meta_error_uncorrectable, Seq("tag_correctable_error")),
+      CoverBoolean( s2_meta_error && s2_meta_error_uncorrectable, Seq("tag_uncorrectable_error")))
+    cover(new CrossProperty(
       Seq(data_error_type, data_error_dirty, request_source, tag_error_cover),
       Seq(),
       "MemorySystem;;Cache Memory Bit Flip Cross Covers"))
@@ -1163,7 +1159,7 @@ class DCacheModule(outer: DCache) extends HellaCacheModule(outer) {
     (isWrite(req.cmd) && (req.cmd === M_PWR || req.size < log2Ceil(eccBytes)))
 
   def ccover(cond: Bool, label: String, desc: String)(implicit sourceInfo: SourceInfo) =
-    property.cover(cond, s"DCACHE_$label", "MemorySystem;;" + desc)
+    cover(cond, s"DCACHE_$label", "MemorySystem;;" + desc)
   def ccoverNotScratchpad(cond: Bool, label: String, desc: String)(implicit sourceInfo: SourceInfo) =
     if (!usingDataScratchpad) ccover(cond, label, desc)
 

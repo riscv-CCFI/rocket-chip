@@ -9,7 +9,6 @@ import freechips.rocketchip.tile.HasCoreParameters
 import freechips.rocketchip.util._
 import freechips.rocketchip.scie.SCIE
 import Instructions._
-import CustomInstructions._
 import ALU._
 
 abstract trait DecodeConstants extends HasCoreParameters
@@ -111,8 +110,8 @@ class IDecode(implicit val p: Parameters) extends DecodeConstants
 
     FENCE->     List(Y,N,N,N,N,N,N,N,N,A2_X,   A1_X,   IMM_X, DW_X,  FN_X,     N,M_X,        N,N,N,N,N,N,N,CSR.N,N,Y,N,N),
 
-    ECALL->     List(Y,N,N,N,N,N,N,X,N,A2_X,   A1_X,   IMM_X, DW_X,  FN_X,     N,M_X,        N,N,N,N,N,N,N,CSR.I,N,N,N,N),
-    EBREAK->    List(Y,N,N,N,N,N,N,X,N,A2_X,   A1_X,   IMM_X, DW_X,  FN_X,     N,M_X,        N,N,N,N,N,N,N,CSR.I,N,N,N,N),
+    SCALL->     List(Y,N,N,N,N,N,N,X,N,A2_X,   A1_X,   IMM_X, DW_X,  FN_X,     N,M_X,        N,N,N,N,N,N,N,CSR.I,N,N,N,N),
+    SBREAK->    List(Y,N,N,N,N,N,N,X,N,A2_X,   A1_X,   IMM_X, DW_X,  FN_X,     N,M_X,        N,N,N,N,N,N,N,CSR.I,N,N,N,N),
     MRET->      List(Y,N,N,N,N,N,N,X,N,A2_X,   A1_X,   IMM_X, DW_X,  FN_X,     N,M_X,        N,N,N,N,N,N,N,CSR.I,N,N,N,N),
     WFI->       List(Y,N,N,N,N,N,N,X,N,A2_X,   A1_X,   IMM_X, DW_X,  FN_X,     N,M_X,        N,N,N,N,N,N,N,CSR.I,N,N,N,N),
     CEASE->     List(Y,N,N,N,N,N,N,X,N,A2_X,   A1_X,   IMM_X, DW_X,  FN_X,     N,M_X,        N,N,N,N,N,N,N,CSR.I,N,N,N,N),
@@ -146,33 +145,13 @@ class CFlushDecode(supportsFlushLine: Boolean)(implicit val p: Parameters) exten
 class SVMDecode(implicit val p: Parameters) extends DecodeConstants
 {
   val table: Array[(BitPat, List[BitPat])] = Array(
-    SFENCE_VMA->List(Y,N,N,N,N,N,Y,Y,N,A2_ZERO,A1_RS1, IMM_X, DW_XPR,FN_ADD,   Y,M_SFENCE,   N,N,N,N,N,N,N,CSR.I,N,N,N,N))
+    SFENCE_VMA->List(Y,N,N,N,N,N,Y,Y,N,A2_ZERO,A1_RS1, IMM_X, DW_XPR,FN_ADD,   Y,M_SFENCE,   N,N,N,N,N,N,N,CSR.N,N,N,N,N))
 }
 
 class SDecode(implicit val p: Parameters) extends DecodeConstants
 {
   val table: Array[(BitPat, List[BitPat])] = Array(
     SRET->      List(Y,N,N,N,N,N,N,X,N,A2_X,   A1_X,   IMM_X, DW_X,  FN_X,     N,M_X,        N,N,N,N,N,N,N,CSR.I,N,N,N,N))
-}
-
-class HypervisorDecode(implicit val p: Parameters) extends DecodeConstants
-{
-  val table: Array[(BitPat, List[BitPat])] = Array(
-
-    HFENCE_VVMA->List(Y,N,N,N,N,N,Y,Y,N,A2_ZERO,A1_RS1, IMM_X, DW_XPR, FN_ADD, Y,M_HFENCEV,  N,N,N,N,N,N,N,CSR.I,N,N,N,N),
-    HFENCE_GVMA->List(Y,N,N,N,N,N,Y,Y,N,A2_ZERO,A1_RS1, IMM_X, DW_XPR, FN_ADD, Y,M_HFENCEG,  N,N,N,N,N,N,N,CSR.I,N,N,N,N),
-
-    HLV_B ->    List(Y,N,N,N,N,N,N,Y,N,A2_ZERO, A1_RS1, IMM_X, DW_XPR, FN_ADD, Y,M_XRD,      N,N,N,N,N,N,Y,CSR.I,N,N,N,N),
-    HLV_BU->    List(Y,N,N,N,N,N,N,Y,N,A2_ZERO, A1_RS1, IMM_X, DW_XPR, FN_ADD, Y,M_XRD,      N,N,N,N,N,N,Y,CSR.I,N,N,N,N),
-    HLV_H ->    List(Y,N,N,N,N,N,N,Y,N,A2_ZERO, A1_RS1, IMM_X, DW_XPR, FN_ADD, Y,M_XRD,      N,N,N,N,N,N,Y,CSR.I,N,N,N,N),
-    HLV_HU->    List(Y,N,N,N,N,N,N,Y,N,A2_ZERO, A1_RS1, IMM_X, DW_XPR, FN_ADD, Y,M_XRD,      N,N,N,N,N,N,Y,CSR.I,N,N,N,N),
-    HLVX_HU->   List(Y,N,N,N,N,N,N,Y,N,A2_ZERO, A1_RS1, IMM_X, DW_XPR, FN_ADD, Y,M_HLVX,     N,N,N,N,N,N,Y,CSR.I,N,N,N,N),
-    HLV_W->     List(Y,N,N,N,N,N,N,Y,N,A2_ZERO, A1_RS1, IMM_X, DW_XPR, FN_ADD, Y,M_XRD,      N,N,N,N,N,N,Y,CSR.I,N,N,N,N),
-    HLVX_WU->   List(Y,N,N,N,N,N,N,Y,N,A2_ZERO, A1_RS1, IMM_X, DW_XPR, FN_ADD, Y,M_HLVX,     N,N,N,N,N,N,Y,CSR.I,N,N,N,N),
-
-    HSV_B->     List(Y,N,N,N,N,N,Y,Y,N,A2_ZERO, A1_RS1, IMM_I, DW_XPR, FN_ADD, Y,M_XWR,      N,N,N,N,N,N,N,CSR.I,N,N,N,N),
-    HSV_H->     List(Y,N,N,N,N,N,Y,Y,N,A2_ZERO, A1_RS1, IMM_I, DW_XPR, FN_ADD, Y,M_XWR,      N,N,N,N,N,N,N,CSR.I,N,N,N,N),
-    HSV_W->     List(Y,N,N,N,N,N,Y,Y,N,A2_ZERO, A1_RS1, IMM_I, DW_XPR, FN_ADD, Y,M_XWR,      N,N,N,N,N,N,N,CSR.I,N,N,N,N))
 }
 
 class DebugDecode(implicit val p: Parameters) extends DecodeConstants
@@ -190,12 +169,9 @@ class NMIDecode(implicit val p: Parameters) extends DecodeConstants
 class I32Decode(implicit val p: Parameters) extends DecodeConstants
 {
   val table: Array[(BitPat, List[BitPat])] = Array(
-    Instructions32.SLLI->
-                List(Y,N,N,N,N,N,N,Y,N,A2_IMM, A1_RS1, IMM_I, DW_XPR,FN_SL,    N,M_X,        N,N,N,N,N,N,Y,CSR.N,N,N,N,N),
-    Instructions32.SRLI->
-                List(Y,N,N,N,N,N,N,Y,N,A2_IMM, A1_RS1, IMM_I, DW_XPR,FN_SR,    N,M_X,        N,N,N,N,N,N,Y,CSR.N,N,N,N,N),
-    Instructions32.SRAI->
-                List(Y,N,N,N,N,N,N,Y,N,A2_IMM, A1_RS1, IMM_I, DW_XPR,FN_SRA,   N,M_X,        N,N,N,N,N,N,Y,CSR.N,N,N,N,N))
+    SLLI_RV32-> List(Y,N,N,N,N,N,N,Y,N,A2_IMM, A1_RS1, IMM_I, DW_XPR,FN_SL,    N,M_X,        N,N,N,N,N,N,Y,CSR.N,N,N,N,N),
+    SRLI_RV32-> List(Y,N,N,N,N,N,N,Y,N,A2_IMM, A1_RS1, IMM_I, DW_XPR,FN_SR,    N,M_X,        N,N,N,N,N,N,Y,CSR.N,N,N,N,N),
+    SRAI_RV32-> List(Y,N,N,N,N,N,N,Y,N,A2_IMM, A1_RS1, IMM_I, DW_XPR,FN_SRA,   N,M_X,        N,N,N,N,N,N,Y,CSR.N,N,N,N,N))
 }
 
 class I64Decode(implicit val p: Parameters) extends DecodeConstants
@@ -218,14 +194,6 @@ class I64Decode(implicit val p: Parameters) extends DecodeConstants
     SLLW->      List(Y,N,N,N,N,N,Y,Y,N,A2_RS2, A1_RS1, IMM_X, DW_32,FN_SL,     N,M_X,        N,N,N,N,N,N,Y,CSR.N,N,N,N,N),
     SRLW->      List(Y,N,N,N,N,N,Y,Y,N,A2_RS2, A1_RS1, IMM_X, DW_32,FN_SR,     N,M_X,        N,N,N,N,N,N,Y,CSR.N,N,N,N,N),
     SRAW->      List(Y,N,N,N,N,N,Y,Y,N,A2_RS2, A1_RS1, IMM_X, DW_32,FN_SRA,    N,M_X,        N,N,N,N,N,N,Y,CSR.N,N,N,N,N))
-}
-
-class Hypervisor64Decode(implicit val p: Parameters) extends DecodeConstants
-{
-  val table: Array[(BitPat, List[BitPat])] = Array(
-    HLV_D->     List(Y,N,N,N,N,N,N,Y,N,A2_ZERO, A1_RS1, IMM_X, DW_XPR, FN_ADD, Y,M_XRD,      N,N,N,N,N,N,Y,CSR.I,N,N,N,N),
-    HSV_D->     List(Y,N,N,N,N,N,Y,Y,N,A2_ZERO, A1_RS1, IMM_I, DW_XPR, FN_ADD, Y,M_XWR,      N,N,N,N,N,N,N,CSR.I,N,N,N,N),
-    HLV_WU->    List(Y,N,N,N,N,N,N,Y,N,A2_ZERO, A1_RS1, IMM_X, DW_XPR, FN_ADD, Y,M_XRD,      N,N,N,N,N,N,Y,CSR.I,N,N,N,N))
 }
 
 class MDecode(pipelinedMul: Boolean)(implicit val p: Parameters) extends DecodeConstants
@@ -340,13 +308,13 @@ class FDecode(implicit val p: Parameters) extends DecodeConstants
     FNMADD_S->  List(Y,Y,N,N,N,N,N,N,N,A2_X,   A1_X,   IMM_X, DW_X,  FN_X,     N,M_X,        Y,Y,Y,Y,N,N,N,CSR.N,N,N,N,N),
     FNMSUB_S->  List(Y,Y,N,N,N,N,N,N,N,A2_X,   A1_X,   IMM_X, DW_X,  FN_X,     N,M_X,        Y,Y,Y,Y,N,N,N,CSR.N,N,N,N,N),
     FCLASS_S->  List(Y,Y,N,N,N,N,N,N,N,A2_X,   A1_X,   IMM_X, DW_X,  FN_X,     N,M_X,        Y,N,N,N,N,N,Y,CSR.N,N,N,N,N),
-    FMV_X_W->   List(Y,Y,N,N,N,N,N,N,N,A2_X,   A1_X,   IMM_X, DW_X,  FN_X,     N,M_X,        Y,N,N,N,N,N,Y,CSR.N,N,N,N,N),
+    FMV_X_S->   List(Y,Y,N,N,N,N,N,N,N,A2_X,   A1_X,   IMM_X, DW_X,  FN_X,     N,M_X,        Y,N,N,N,N,N,Y,CSR.N,N,N,N,N),
     FCVT_W_S->  List(Y,Y,N,N,N,N,N,N,N,A2_X,   A1_X,   IMM_X, DW_X,  FN_X,     N,M_X,        Y,N,N,N,N,N,Y,CSR.N,N,N,N,N),
     FCVT_WU_S-> List(Y,Y,N,N,N,N,N,N,N,A2_X,   A1_X,   IMM_X, DW_X,  FN_X,     N,M_X,        Y,N,N,N,N,N,Y,CSR.N,N,N,N,N),
     FEQ_S->     List(Y,Y,N,N,N,N,N,N,N,A2_X,   A1_X,   IMM_X, DW_X,  FN_X,     N,M_X,        Y,Y,N,N,N,N,Y,CSR.N,N,N,N,N),
     FLT_S->     List(Y,Y,N,N,N,N,N,N,N,A2_X,   A1_X,   IMM_X, DW_X,  FN_X,     N,M_X,        Y,Y,N,N,N,N,Y,CSR.N,N,N,N,N),
     FLE_S->     List(Y,Y,N,N,N,N,N,N,N,A2_X,   A1_X,   IMM_X, DW_X,  FN_X,     N,M_X,        Y,Y,N,N,N,N,Y,CSR.N,N,N,N,N),
-    FMV_W_X->   List(Y,Y,N,N,N,N,N,Y,N,A2_X,   A1_RS1, IMM_X, DW_X,  FN_X,     N,M_X,        N,N,N,Y,N,N,N,CSR.N,N,N,N,N),
+    FMV_S_X->   List(Y,Y,N,N,N,N,N,Y,N,A2_X,   A1_RS1, IMM_X, DW_X,  FN_X,     N,M_X,        N,N,N,Y,N,N,N,CSR.N,N,N,N,N),
     FCVT_S_W->  List(Y,Y,N,N,N,N,N,Y,N,A2_X,   A1_RS1, IMM_X, DW_X,  FN_X,     N,M_X,        N,N,N,Y,N,N,N,CSR.N,N,N,N,N),
     FCVT_S_WU-> List(Y,Y,N,N,N,N,N,Y,N,A2_X,   A1_RS1, IMM_X, DW_X,  FN_X,     N,M_X,        N,N,N,Y,N,N,N,CSR.N,N,N,N,N),
     FLW->       List(Y,Y,N,N,N,N,N,Y,N,A2_IMM, A1_RS1, IMM_I, DW_XPR,FN_ADD,   Y,M_XRD,      N,N,N,Y,N,N,N,CSR.N,N,N,N,N),

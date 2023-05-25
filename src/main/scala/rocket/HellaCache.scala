@@ -8,6 +8,7 @@ import chisel3.dontTouch
 import freechips.rocketchip.amba._
 import freechips.rocketchip.config.{Parameters, Field}
 import freechips.rocketchip.diplomacy._
+import freechips.rocketchip.diplomaticobjectmodel.model.OMSRAM
 import freechips.rocketchip.tile._
 import freechips.rocketchip.tilelink._
 import freechips.rocketchip.util._
@@ -108,7 +109,6 @@ trait HasCoreMemOp extends HasL1HellaCacheParameters {
   val size = Bits(width = log2Ceil(coreDataBytes.log2 + 1))
   val signed = Bool()
   val dprv = UInt(width = PRV.SZ)
-  val dv = Bool()
 }
 
 trait HasCoreData extends HasCoreParameters {
@@ -142,7 +142,6 @@ class AlignmentExceptions extends Bundle {
 class HellaCacheExceptions extends Bundle {
   val ma = new AlignmentExceptions
   val pf = new AlignmentExceptions
-  val gf = new AlignmentExceptions
   val ae = new AlignmentExceptions
 }
 
@@ -175,8 +174,6 @@ class HellaCacheIO(implicit p: Parameters) extends CoreBundle()(p) {
   val resp = Valid(new HellaCacheResp).flip
   val replay_next = Bool(INPUT)
   val s2_xcpt = (new HellaCacheExceptions).asInput
-  val s2_gpa = UInt(vaddrBitsExtended.W).asInput
-  val s2_gpa_is_pte = Bool(INPUT)
   val uncached_resp = tileParams.dcache.get.separateUncachedResp.option(Decoupled(new HellaCacheResp).flip)
   val ordered = Bool(INPUT)
   val perf = new HellaCachePerfEvents().asInput
@@ -218,6 +215,8 @@ abstract class HellaCache(staticIdForMetadataUseOnly: Int)(implicit p: Parameter
   def canSupportCFlushLine = !usingVM || cfg.blockBytes * cfg.nSets <= (1 << pgIdxBits)
 
   require(!tileParams.core.haveCFlush || cfg.scratch.isEmpty, "CFLUSH_D_L1 instruction requires a D$")
+
+  def getOMSRAMs(): Seq[OMSRAM]
 }
 
 class HellaCacheBundle(val outer: HellaCache)(implicit p: Parameters) extends CoreBundle()(p) {

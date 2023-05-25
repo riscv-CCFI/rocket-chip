@@ -34,6 +34,7 @@ class AXISBundleBits(val params: AXISBundleParameters) extends BundleMap(AXISBun
 }
 
 class AXISBundle(val params: AXISBundleParameters) extends IrrevocableIO(new AXISBundleBits(params)) {
+  override def cloneType: this.type = (new AXISBundle(params)).asInstanceOf[this.type]
 }
 
 object AXISBundle {

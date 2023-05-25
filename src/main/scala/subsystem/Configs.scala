@@ -11,6 +11,7 @@ import freechips.rocketchip.diplomacy._
 import freechips.rocketchip.rocket._
 import freechips.rocketchip.tile._
 import freechips.rocketchip.util._
+import PARoCCAccel._
 
 class BaseSubsystemConfig extends Config ((site, here, up) => {
   // Tile parameters
@@ -61,11 +62,7 @@ class WithIncoherentBusTopology extends Config((site, here, up) => {
       pbus = site(PeripheryBusKey),
       fbus = site(FrontBusKey),
       cbus = site(ControlBusKey),
-      xTypes = SubsystemCrossingParams(
-        sbusToCbusXType = site(SbusToCbusXTypeKey),
-        cbusToPbusXType = site(CbusToPbusXTypeKey),
-        fbusToSbusXType = site(FbusToSbusXTypeKey)),
-      driveClocksFromSBus = site(DriveClocksFromSBus)))
+      xTypes = SubsystemCrossingParams()))
 })
 
 class WithCoherentBusTopology extends Config((site, here, up) => {
@@ -158,6 +155,16 @@ class WithNSmallCores(n: Int, overrideIdOffset: Option[Int] = None) extends Conf
         blockBytes = site(CacheBlockBytes))))
     List.tabulate(n)(i => small.copy(hartId = i + idOffset)) ++ prev
   }
+})
+
+class WithPARoCCAccel extends Config((site,here,up) => {
+    case BuildRoCC => Seq(
+        (p:Parameters) => {
+            val regWidth = 64    
+            val lcmAccel = LazyModule(new PARoCCAccel(OpcodeSet.custom0, regWidth)(p))
+            lcmAccel
+        }
+    )
 })
 
 class With1TinyCore extends Config((site, here, up) => {
@@ -275,12 +282,6 @@ class WithNBreakpoints(hwbp: Int) extends Config ((site, here, up) => {
   }
 })
 
-class WithHypervisor(hext: Boolean = true) extends Config((site, here, up) => {
-  case RocketTilesKey => up(RocketTilesKey, site) map { r =>
-    r.copy(core = r.core.copy(useHypervisor = hext))
-  }
-})
-
 class WithRoccExample extends Config((site, here, up) => {
   case BuildRoCC => List(
     (p: Parameters) => {
@@ -334,10 +335,6 @@ class WithFPUWithoutDivSqrt extends Config((site, here, up) => {
 
 class WithBootROMFile(bootROMFile: String) extends Config((site, here, up) => {
   case BootROMLocated(x) => up(BootROMLocated(x), site).map(_.copy(contentFileName = bootROMFile))
-})
-
-class WithClockGateModel(file: String = "/vsrc/EICG_wrapper.v") extends Config((site, here, up) => {
-  case ClockGateModelFile => Some(file)
 })
 
 class WithSynchronousRocketTiles extends Config((site, here, up) => {
@@ -395,10 +392,6 @@ class WithNMemoryChannels(n: Int) extends Config((site, here, up) => {
 
 class WithExtMemSize(n: BigInt) extends Config((site, here, up) => {
   case ExtMem => up(ExtMem, site).map(x => x.copy(master = x.master.copy(size = n)))
-})
-
-class WithExtMemSbusBypass(base: BigInt = x"10_0000_0000") extends Config((site, here, up) => {
-  case ExtMem => up(ExtMem, site).map(x => x.copy(incohBase = Some(base)))
 })
 
 class WithDTS(model: String, compat: Seq[String]) extends Config((site, here, up) => {

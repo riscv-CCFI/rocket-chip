@@ -1,19 +1,18 @@
 // See LICENSE.SiFive for license details.
 
 module RoccBlackBox
-  #( parameter xLen = 64,
-     PRV_SZ = 2,
-     coreMaxAddrBits = 40,
-     dcacheReqTagBits = 9,
-     M_SZ = 5,
-     mem_req_bits_size_width = 2,
-     coreDataBits = 64,
-     coreDataBytes = 8,
-     paddrBits = 32,
-     vaddrBitsExtended = 40,
-     FPConstants_RM_SZ = 3,
-     fLen = 64,
-     FPConstants_FLAGS_SZ  = 5)
+  #( parameter xLen,
+     PRV_SZ,
+     coreMaxAddrBits,
+     dcacheReqTagBits,
+     M_SZ,
+     mem_req_bits_size_width,
+     coreDataBits,
+     coreDataBytes,
+     paddrBits,
+     FPConstants_RM_SZ,
+     fLen,
+     FPConstants_FLAGS_SZ )
   ( input clock,
     input reset,
     output rocc_cmd_ready,
@@ -33,15 +32,9 @@ module RoccBlackBox
     input rocc_cmd_bits_status_wfi,
     input [31:0] rocc_cmd_bits_status_isa,
     input [PRV_SZ-1:0] rocc_cmd_bits_status_dprv,
-    input rocc_cmd_bits_status_dv,
     input [PRV_SZ-1:0] rocc_cmd_bits_status_prv,
-    input rocc_cmd_bits_status_v,
     input rocc_cmd_bits_status_sd,
-    input [22:0] rocc_cmd_bits_status_zero2,
-    input rocc_cmd_bits_status_mpv,
-    input rocc_cmd_bits_status_gva,
-    input rocc_cmd_bits_status_mbe,
-    input rocc_cmd_bits_status_sbe,
+    input [26:0] rocc_cmd_bits_status_zero2,
     input [1:0] rocc_cmd_bits_status_sxl,
     input [1:0] rocc_cmd_bits_status_uxl,
     input rocc_cmd_bits_status_sd_rv32,
@@ -58,7 +51,7 @@ module RoccBlackBox
     input [1:0] rocc_cmd_bits_status_mpp,
     input [0:0] rocc_cmd_bits_status_spp,
     input rocc_cmd_bits_status_mpie,
-    input rocc_cmd_bits_status_ube,
+    input rocc_cmd_bits_status_hpie,
     input rocc_cmd_bits_status_spie,
     input rocc_cmd_bits_status_upie,
     input rocc_cmd_bits_status_mie,
@@ -80,7 +73,6 @@ module RoccBlackBox
     output rocc_mem_req_bits_no_alloc,
     output rocc_mem_req_bits_no_xcpt,
     output [1:0] rocc_mem_req_bits_dprv,
-    output rocc_mem_req_bits_dv,
     output [coreDataBits-1:0] rocc_mem_req_bits_data,
     output [coreDataBytes-1:0] rocc_mem_req_bits_mask,
     output rocc_mem_s1_kill,
@@ -91,8 +83,6 @@ module RoccBlackBox
     output rocc_mem_s2_kill,
     input rocc_mem_s2_uncached,
     input [paddrBits-1:0] rocc_mem_s2_paddr,
-    input [vaddrBitsExtended-1:0] rocc_mem_s2_gpa,
-    input rocc_mem_s2_gpa_is_pte,
     input rocc_mem_resp_valid,
     input [coreMaxAddrBits-1:0] rocc_mem_resp_bits_addr,
     input [dcacheReqTagBits-1:0] rocc_mem_resp_bits_tag,
@@ -107,14 +97,11 @@ module RoccBlackBox
     input [coreDataBits-1:0] rocc_mem_resp_bits_data_raw,
     input [coreDataBits-1:0] rocc_mem_resp_bits_store_data,
     input [1:0] rocc_mem_resp_bits_dprv,
-    input rocc_mem_resp_bits_dv,
     input rocc_mem_replay_next,
     input rocc_mem_s2_xcpt_ma_ld,
     input rocc_mem_s2_xcpt_ma_st,
     input rocc_mem_s2_xcpt_pf_ld,
     input rocc_mem_s2_xcpt_pf_st,
-    input rocc_mem_s2_xcpt_gf_ld,
-    input rocc_mem_s2_xcpt_gf_st,
     input rocc_mem_s2_xcpt_ae_ld,
     input rocc_mem_s2_xcpt_ae_st,
     input rocc_mem_ordered,
@@ -164,6 +151,7 @@ module RoccBlackBox
     input [FPConstants_FLAGS_SZ-1:0] rocc_fpu_resp_bits_exc );
 
   assign rocc_cmd_ready = 1'b1;
+  assign rocc_resp_valid = 1'b0;
 
   assign rocc_mem_req_valid = 1'b0;
   assign rocc_mem_s1_kill = 1'b0;
@@ -181,22 +169,20 @@ module RoccBlackBox
   reg [4:0] rocc_cmd_bits_inst_rd_d;
   always @ (posedge clock) begin
     if (reset) begin
-      acc <= {xLen{1'b0}};
-      doResp <= 1'b0;
-      rocc_cmd_bits_inst_rd_d <= 5'b0;
+      acc <= 0;
     end
-    else if (rocc_cmd_valid && rocc_cmd_ready) begin
+    if (rocc_cmd_valid && rocc_cmd_ready) begin
       doResp                  <= rocc_cmd_bits_inst_xd;
       rocc_cmd_bits_inst_rd_d <= rocc_cmd_bits_inst_rd;
       acc                     <= acc + rocc_cmd_bits_rs1 + rocc_cmd_bits_rs2;
     end
     else begin
-      doResp <= 1'b0;
+      doResp <= 0;
     end
   end
 
   assign rocc_resp_valid = doResp;
-  assign rocc_resp_bits_rd = rocc_cmd_bits_inst_rd_d;
+  assign rocc_resp_bits_rd = rocc_cmd_bits_inst_rd;
   assign rocc_resp_bits_data = acc;
 
 endmodule

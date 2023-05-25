@@ -40,6 +40,7 @@ class DMIAccessUpdate(addrBits: Int) extends Bundle {
   val data = UInt(DMIConsts.dmiDataSize.W)
   val op = UInt(DMIConsts.dmiOpSize.W)
 
+  override def cloneType = new DMIAccessUpdate(addrBits).asInstanceOf[this.type]
 }
 
 class DMIAccessCapture(addrBits: Int) extends Bundle {
@@ -47,6 +48,7 @@ class DMIAccessCapture(addrBits: Int) extends Bundle {
   val data = UInt(DMIConsts.dmiDataSize.W)
   val resp = UInt(DMIConsts.dmiRespSize.W)
 
+  override def cloneType = new DMIAccessCapture(addrBits).asInstanceOf[this.type]
 
 }
 

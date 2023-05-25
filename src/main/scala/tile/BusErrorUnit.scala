@@ -9,10 +9,11 @@ import chisel3.DontCare
 import freechips.rocketchip.config.Parameters
 import freechips.rocketchip.rocket._
 import freechips.rocketchip.diplomacy._
+import freechips.rocketchip.diplomaticobjectmodel.logicaltree.{BusErrorLogicalTreeNode, LogicalModuleTree, LogicalTreeNode}
 import freechips.rocketchip.regmapper._
 import freechips.rocketchip.tilelink._
 import freechips.rocketchip.interrupts._
-import freechips.rocketchip.util.property
+import freechips.rocketchip.util.property._
 
 trait BusErrors extends Bundle {
   def toErrorList: List[Option[(Valid[UInt], String, String)]]
@@ -34,7 +35,7 @@ class L1BusErrors(implicit p: Parameters) extends CoreBundle()(p) with BusErrors
 
 case class BusErrorUnitParams(addr: BigInt, size: Int = 4096)
 
-class BusErrorUnit[T <: BusErrors](t: => T, params: BusErrorUnitParams)(implicit p: Parameters) extends LazyModule {
+class BusErrorUnit[T <: BusErrors](t: => T, params: BusErrorUnitParams, logicalTreeNode: LogicalTreeNode)(implicit p: Parameters) extends LazyModule {
   val regWidth = 64
   val device = new SimpleDevice("bus-error-unit", Seq("sifive,buserror0"))
   val intNode = IntSourceNode(IntSourcePortSimple(resources = device.int))
@@ -96,7 +97,7 @@ class BusErrorUnit[T <: BusErrors](t: => T, params: BusErrorUnitParams)(implicit
           new_cause := i
           new_value := s.get.bits
         }
-        property.cover(en, s"BusErrorCause_$i", s"Core;;BusErrorCause $i covered")
+        cover(en, s"BusErrorCause_$i", s"Core;;BusErrorCause $i covered")
       }
     }
 
@@ -129,5 +130,8 @@ class BusErrorUnit[T <: BusErrors](t: => T, params: BusErrorUnitParams)(implicit
       accrued(i) := false
       local_interrupt(i) := false
     }
+
+    val busErrorLTN = new BusErrorLogicalTreeNode(device, omRegMap)
+    LogicalModuleTree.add(logicalTreeNode, busErrorLTN)
   }
 }

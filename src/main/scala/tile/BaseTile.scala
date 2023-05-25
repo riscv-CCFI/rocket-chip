@@ -7,6 +7,8 @@ import Chisel._
 import freechips.rocketchip.config._
 import freechips.rocketchip.subsystem._
 import freechips.rocketchip.diplomacy._
+import freechips.rocketchip.diplomaticobjectmodel.{HasLogicalTreeNode}
+import freechips.rocketchip.diplomaticobjectmodel.logicaltree.{GenericLogicalTreeNode, LogicalTreeNode}
 
 import freechips.rocketchip.interrupts._
 import freechips.rocketchip.rocket._
@@ -45,7 +47,6 @@ trait HasNonDiplomaticTileParameters {
   def usingVM: Boolean = tileParams.core.useVM
   def usingUser: Boolean = tileParams.core.useUser || usingSupervisor
   def usingSupervisor: Boolean = tileParams.core.hasSupervisorMode
-  def usingHypervisor: Boolean = usingVM && tileParams.core.useHypervisor
   def usingDebug: Boolean = tileParams.core.useDebug
   def usingRoCC: Boolean = !p(BuildRoCC).isEmpty
   def usingBTB: Boolean = tileParams.btb.isDefined && tileParams.btb.get.nEntries > 0
@@ -59,19 +60,12 @@ trait HasNonDiplomaticTileParameters {
   def pgLevelBits: Int = 10 - log2Ceil(xLen / 32)
   def pgLevels: Int = p(PgLevels)
   def maxSVAddrBits: Int = pgIdxBits + pgLevels * pgLevelBits
-  def maxHypervisorExtraAddrBits: Int = 2
-  def hypervisorExtraAddrBits: Int = {
-    if (usingHypervisor) maxHypervisorExtraAddrBits
-    else 0
-  }
-  def maxHVAddrBits: Int = maxSVAddrBits + hypervisorExtraAddrBits
   def minPgLevels: Int = {
     val res = xLen match { case 32 => 2; case 64 => 3 }
     require(pgLevels >= res)
     res
   }
   def asIdBits: Int = p(ASIdBits)
-  def vmIdBits: Int = p(VMIdBits)
   lazy val maxPAddrBits: Int = {
     require(xLen == 32 || xLen == 64, s"Only XLENs of 32 or 64 are supported, but got $xLen")
     xLen match { case 32 => 34; case 64 => 56 }
@@ -132,16 +126,9 @@ trait HasNonDiplomaticTileParameters {
       "i-tlb-size"           -> (i.nTLBWays * i.nTLBSets).asProperty,
       "i-tlb-sets"           -> i.nTLBSets.asProperty)).getOrElse(Nil)
 
-    val mmu =
-      if (tileParams.core.useVM) {
-        if (tileParams.core.useHypervisor) {
-          Map("tlb-split" -> Nil, "mmu-type" -> s"riscv,sv${maxSVAddrBits},sv${maxSVAddrBits}x4".asProperty)
-        } else {
-          Map("tlb-split" -> Nil, "mmu-type" -> s"riscv,sv$maxSVAddrBits".asProperty)
-        }
-      } else {
-        Nil
-      }
+    val mmu = if (!tileParams.core.useVM) Nil else Map(
+        "tlb-split" -> Nil,
+        "mmu-type"  -> s"riscv,sv$maxSVAddrBits".asProperty)
 
     val pmp = if (tileParams.core.nPMPs > 0) Map(
       "riscv,pmpregions" -> tileParams.core.nPMPs.asProperty,
@@ -165,7 +152,7 @@ trait HasTileParameters extends HasNonDiplomaticTileParameters {
   }
   def vaddrBits: Int =
     if (usingVM) {
-      val v = maxHVAddrBits
+      val v = maxSVAddrBits
       require(v == xLen || xLen > v && v > paddrBits)
       v
     } else {
@@ -184,6 +171,7 @@ abstract class BaseTile private (val crossing: ClockCrossingType, q: Parameters)
     extends LazyModule()(q)
     with CrossesToOnlyOneClockDomain
     with HasNonDiplomaticTileParameters
+    with HasLogicalTreeNode
 {
   // Public constructor alters Parameters to supply some legacy compatibility keys
   def this(tileParams: TileParams, crossing: ClockCrossingType, lookup: LookupByHartIdImpl, p: Parameters) = {
@@ -351,6 +339,9 @@ abstract class BaseTile private (val crossing: ClockCrossingType, q: Parameters)
     * in subclasses of this class.
     */
  def makeSlaveBoundaryBuffers(crossing: ClockCrossingType)(implicit p: Parameters) = TLBuffer(BufferParams.none)
+
+  /** Use for ObjectModel representation of this tile. Subclasses might override this. */
+  val logicalTreeNode: LogicalTreeNode = new GenericLogicalTreeNode
 
   /** Can be used to access derived params calculated by HasCoreParameters
     *

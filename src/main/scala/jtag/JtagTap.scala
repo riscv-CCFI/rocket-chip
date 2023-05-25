@@ -16,6 +16,7 @@ class JTAGIO(hasTRSTn: Boolean = false) extends Bundle {
   val TDI   = Output(Bool())
   val TDO   = Input(new Tristate())
 
+  override def cloneType = new JTAGIO(hasTRSTn).asInstanceOf[this.type]
 }
 
 /** JTAG block output signals.
@@ -25,6 +26,7 @@ class JtagOutput(irLength: Int) extends Bundle {
   val instruction = Output(UInt(irLength.W))  // current active instruction
   val tapIsInTestLogicReset = Output(Bool())  // synchronously asserted in Test-Logic-Reset state, should NOT hold the FSM in reset
 
+  override def cloneType = new JtagOutput(irLength).asInstanceOf[this.type]
 }
 
 class JtagControl extends Bundle {
@@ -40,6 +42,7 @@ class JtagBlockIO(irLength: Int, hasIdcode:Boolean = true) extends Bundle {
   val output = new JtagOutput(irLength)
   val idcode = if (hasIdcode) Some(Input(new JTAGIdcodeBundle())) else None
 
+  override def cloneType = new JtagBlockIO(irLength, hasIdcode).asInstanceOf[this.type]
 }
 
 /** Internal controller block IO with data shift outputs.
@@ -48,6 +51,7 @@ class JtagControllerIO(irLength: Int) extends JtagBlockIO(irLength, false) {
   val dataChainOut = Output(new ShifterIO)
   val dataChainIn = Input(new ShifterIO)
 
+  override def cloneType = new JtagControllerIO(irLength).asInstanceOf[this.type]
 }
 
 /** JTAG TAP controller internal block, responsible for instruction decode and data register chain
