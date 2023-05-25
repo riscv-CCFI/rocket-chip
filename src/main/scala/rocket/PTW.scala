@@ -92,7 +92,7 @@ class L2TLBEntry(nSets: Int)(implicit p: Parameters) extends CoreBundle()(p)
   val w = Bool()
   val r = Bool()
 
-  override def cloneType = new L2TLBEntry(nSets).asInstanceOf[this.type]
+  //override def cloneType = new L2TLBEntry(nSets).asInstanceOf[this.type]
 }
 
 @chiselName

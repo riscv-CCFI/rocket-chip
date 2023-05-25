@@ -339,8 +339,8 @@ sealed trait LazyModuleImpLike extends RawModule {
         mod.dangles
       }
       
-      val mod = Module(c.module)
-        mod.dangles
+      //val mod = Module(c.module)
+       // mod.dangles
     }
 
     // Ask each node in this [[LazyModule]] to call [[BaseNode.instantiate]].
