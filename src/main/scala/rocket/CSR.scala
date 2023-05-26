@@ -554,7 +554,7 @@ class CSRFile(
     read_mapping += CSRs.minstret -> reg_instret
 
     for (((e, c), i) <- (reg_hpmevent.padTo(CSR.nHPM, UInt(0))
-                         zip reg_hpmcounter.map(x => x: UInt).padTo(CSR.nHPM, UInt(0))) zipWithIndex) {
+                         zip reg_hpmcounter.map(x => x: UInt).padTo(CSR.nHPM, UInt(0))).zipWithIndex) {
       read_mapping += (i + CSR.firstHPE) -> e // mhpmeventN
       read_mapping += (i + CSR.firstMHPC) -> c // mhpmcounterN
       if (usingUser) read_mapping += (i + CSR.firstHPC) -> c // hpmcounterN
@@ -960,7 +960,7 @@ class CSRFile(
       when (decoded_addr(CSRs.mnstatus))  { reg_mnstatus.mpp := legalizePrivilege(new_mnstatus.mpp) }
     }
 
-    for (((e, c), i) <- (reg_hpmevent zip reg_hpmcounter) zipWithIndex) {
+    for (((e, c), i) <- (reg_hpmevent zip reg_hpmcounter).zipWithIndex) {
       writeCounter(i + CSR.firstMHPC, c, wdata)
       when (decoded_addr(i + CSR.firstHPE)) { e := perfEventSets.maskEventSelector(wdata) }
     }
@@ -1069,7 +1069,7 @@ class CSRFile(
     }
     reg_mcontext.foreach { r => when (decoded_addr(CSRs.mcontext)) { r := wdata }}
     reg_scontext.foreach { r => when (decoded_addr(CSRs.scontext)) { r := wdata }}
-    if (reg_pmp.nonEmpty) for (((pmp, next), i) <- (reg_pmp zip (reg_pmp.tail :+ reg_pmp.last)) zipWithIndex) {
+    if (reg_pmp.nonEmpty) for (((pmp, next), i) <- (reg_pmp zip (reg_pmp.tail :+ reg_pmp.last)).zipWithIndex) {
       require(xLen % pmp.cfg.getWidth == 0)
       when (decoded_addr(CSRs.pmpcfg0 + pmpCfgIndex(i)) && !pmp.cfgLocked) {
         val newCfg = new PMPConfig().fromBits(wdata >> ((i * pmp.cfg.getWidth) % xLen))

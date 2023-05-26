@@ -44,7 +44,8 @@ class BusErrorUnit[T <: BusErrors](t: => T, params: BusErrorUnitParams, logicalT
     device    = device,
     beatBytes = p(XLen)/8)
 
-  lazy val module = new LazyModuleImp(this) {
+  lazy val module = new Impl
+  class Impl extends LazyModuleImp(this) {
     val io = IO(new Bundle {
       val errors = t.flip
       val interrupt = Bool().asOutput
