@@ -653,7 +653,8 @@ class TLDebugModuleOuterAsync(device: Device)(implicit p: Parameters) extends La
   val dmiInnerNode = TLAsyncCrossingSource() := dmiBypass.node := dmiXbar.node
   dmOuter.dmiNode := dmiXbar.node
   
-  lazy val module = new LazyRawModuleImp(this) {
+  lazy val module = new Impl
+  class Impl extends LazyModuleImp(this) {
 
     val nComponents = dmOuter.intnode.edges.out.size
 
