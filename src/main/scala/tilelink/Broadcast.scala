@@ -352,7 +352,7 @@ class ProbeFilterIO(val params: ProbeFilterParams) extends Bundle {
 
 abstract class ProbeFilter(val params: ProbeFilterParams) extends MultiIOModule {
   def useRegFields(bankIndex: Int): Seq[RegField.Map] = Nil
-  def tieRegFields(bankIndex: Int): Unit = Unit
+  def tieRegFields(bankIndex: Int): Unit = ()
   val io = IO(new ProbeFilterIO(params))
 }
 
