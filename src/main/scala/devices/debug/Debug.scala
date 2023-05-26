@@ -655,7 +655,7 @@ class TLDebugModuleOuterAsync(device: Device)(implicit p: Parameters) extends La
   dmOuter.dmiNode := dmiXbar.node
   
   lazy val module = new Impl
-  class Impl extends LazyModuleImp(this) {
+  class Impl extends LazyRawModuleImp(this) {
 
     val nComponents = dmOuter.intnode.edges.out.size
 
@@ -1755,7 +1755,7 @@ class TLDebugModuleInnerAsync(device: Device, getNComponents: () => Int, beatByt
   require(dmInner.tlNode.concurrency == 0)
 
   lazy val module = new Impl
-  class Impl extends LazyModuleImp(this) {
+  class Impl extends LazyRawModuleImp(this) {
 
     // Clock/reset domains:
     //   debug_clock / debug_reset = Debug inner domain
@@ -1830,7 +1830,7 @@ class TLDebugModule(beatBytes: Int)(implicit p: Parameters) extends LazyModule {
   dmInner.dmiNode := dmOuter.dmiInnerNode
 
   lazy val module = new Impl
-  class Impl extends LazyModuleImp(this) {
+  class Impl extends LazyRawModuleImp(this) {
     val nComponents = dmOuter.dmOuter.intnode.edges.out.size
 
     // Clock/reset domains:
