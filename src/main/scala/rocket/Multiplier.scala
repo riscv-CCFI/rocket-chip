@@ -133,7 +133,7 @@ class MulDiv(cfg: MulDivParams, width: Int, nXpr: Int = 32) extends Module {
       val difference = if (i == 0) subtractor else rem(2*w,w) - divisor(w-1,0)
       val less = difference(w)
       Cat(Mux(less, rem(2*w-1,w), difference(w-1,0)), rem(w-1,0), !less)
-    } tail
+    }.tail
 
     remainder := unrolls.last
     when (count === w/cfg.divUnroll) {

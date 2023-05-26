@@ -44,7 +44,7 @@ object DecodeLogic
   def apply(addr: UInt, default: Seq[BitPat], mappingIn: Iterable[(BitPat, Seq[BitPat])]): Seq[UInt] = {
     val mapping = ArrayBuffer.fill(default.size)(ArrayBuffer[(BitPat, BitPat)]())
     for ((key, values) <- mappingIn)
-      for ((value, i) <- values zipWithIndex)
+      for ((value, i) <- values.zipWithIndex)
         mapping(i) += key -> value
     for ((thisDefault, thisMapping) <- default zip mapping)
       yield apply(addr, thisDefault, thisMapping)

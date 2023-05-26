@@ -41,7 +41,8 @@ class MasterMux(uFn: Seq[TLMasterPortParameters] => TLMasterPortParameters)(impl
 {
   val node = new MasterMuxNode(uFn)
 
-  lazy val module = new LazyModuleImp(this) {
+  lazy val module = new Impl
+  class Impl extends LazyModuleImp(this) {
     val io = IO(new Bundle {
       val bypass = Bool(INPUT)
       val pending = Bool(OUTPUT)

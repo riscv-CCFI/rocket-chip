@@ -48,7 +48,7 @@ class EventSets(val eventSets: Seq[EventSet]) {
     sets(set)
   }
 
-  def cover() = eventSets.foreach { _ withCovers }
+  def cover() = eventSets.foreach { _.withCovers }
 
   private def eventSetIdBits = log2Ceil(eventSets.size)
   private def maxEventSetIdBits = 8
