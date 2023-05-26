@@ -672,8 +672,8 @@ class TLDebugModuleOuterAsync(device: Device)(implicit p: Parameters) extends La
     })
     val rf_reset = IO(Input(Reset()))    // RF transform
     //non so se è giusto mettere val qua
-    val childClock := io.dmi_clock
-    val childReset := io.dmi_reset
+    childClock := io.dmi_clock
+    childReset := io.dmi_reset
 
     withClockAndReset(childClock, childReset) {
       dmi2tlOpt.foreach { _.module.io.dmi <> io.dmi.get }
