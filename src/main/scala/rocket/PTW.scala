@@ -433,6 +433,7 @@ class PTW(n: Int)(implicit edge: TLEdgeOut, p: Parameters) extends CoreModule()(
 trait CanHavePTW extends HasTileParameters with HasHellaCache { this: BaseTile =>
   val module: CanHavePTWModule
   val utlbOMSRAMs = collection.mutable.ListBuffer[OMSRAM]()
+  val utlbOMSRAMList = Seq[OMSRAM]
   var nPTWPorts = 1
   nDCachePorts += usingPTW.toInt
 }
