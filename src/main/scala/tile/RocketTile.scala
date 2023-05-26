@@ -126,7 +126,7 @@ class RocketTile private(
   LogicalModuleTree.add(logicalTreeNode, dCacheLogicalTreeNode)
 
   if (rocketParams.core.useVM) {
-    val utlbLogicalTreeNode = new UTLBLogicalTreeNode(rocketParams.core, utlbOMSRAMList)
+    val utlbLogicalTreeNode = new UTLBLogicalTreeNode(rocketParams.core, utlbOMSRAMs)
     LogicalModuleTree.add(logicalTreeNode, utlbLogicalTreeNode)
   }
 }

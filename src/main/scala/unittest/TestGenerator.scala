@@ -9,8 +9,9 @@ import freechips.rocketchip.diplomacy._
 abstract class LazyUnitTest(implicit p: Parameters) extends LazyModule
 { self =>
   protected def finished: Bool
-
-  lazy val module = new LazyModuleImp(this) {
+  
+  lazy val module = new Impl
+  class Impl extends LazyModuleImp(this) {
     val finished = IO(Bool(OUTPUT))
     finished := self.finished
   }
