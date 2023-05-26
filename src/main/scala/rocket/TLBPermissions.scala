@@ -45,7 +45,8 @@ object TLBPageLookup
       .filter(_._2.useful) // get rid of no-permission devices
       .groupBy(_._2) // group by permission type
       .mapValues(seq =>
-        AddressSet.unify(seq.flatMap(_._1))) // coalesce same-permission regions
+        AddressSet.unify(seq.flatMap(_._1)))
+        .toMap // coalesce same-permission regions
   }
 
   // Unmapped memory is considered to be inhomogeneous
