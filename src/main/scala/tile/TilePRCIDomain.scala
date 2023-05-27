@@ -1,16 +1,16 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.tile
+package freechips.rocketchipRT.tile
 
 import chisel3.Vec
-import freechips.rocketchip.config.Parameters
-import freechips.rocketchip.diplomacy._
-import freechips.rocketchip.interrupts._
-import freechips.rocketchip.prci._
-import freechips.rocketchip.rocket.{TracedInstruction}
-import freechips.rocketchip.subsystem.{TileCrossingParamsLike, CrossesToOnlyOneResetDomain}
-import freechips.rocketchip.tilelink._
-import freechips.rocketchip.util.{TraceCoreInterface}
+import freechips.rocketchipRT.config.Parameters
+import freechips.rocketchipRT.diplomacy._
+import freechips.rocketchipRT.interrupts._
+import freechips.rocketchipRT.prci._
+import freechips.rocketchipRT.rocket.{TracedInstruction}
+import freechips.rocketchipRT.subsystem.{TileCrossingParamsLike, CrossesToOnlyOneResetDomain}
+import freechips.rocketchipRT.tilelink._
+import freechips.rocketchipRT.util.{TraceCoreInterface}
 
 /** A wrapper containing all logic within a managed reset domain for a tile.
   *

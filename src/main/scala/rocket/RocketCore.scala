@@ -1,17 +1,17 @@
 // See LICENSE.Berkeley for license details.
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.rocket
+package freechips.rocketchipRT.rocket
 
 import Chisel._
 import Chisel.ImplicitConversions._
 import chisel3.withClock
 import chisel3.experimental.{chiselName, NoChiselNamePrefix}
-import freechips.rocketchip.config.Parameters
-import freechips.rocketchip.tile._
-import freechips.rocketchip.util._
-import freechips.rocketchip.util.property._
-import freechips.rocketchip.scie._
+import freechips.rocketchipRT.config.Parameters
+import freechips.rocketchipRT.tile._
+import freechips.rocketchipRT.util._
+import freechips.rocketchipRT.util.property._
+import freechips.rocketchipRT.scie._
 import scala.collection.mutable.ArrayBuffer
 
 case class RocketCoreParams(

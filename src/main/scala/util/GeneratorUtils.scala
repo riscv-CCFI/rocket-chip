@@ -1,11 +1,11 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.util
+package freechips.rocketchipRT.util
 
 import java.io.{File, FileWriter}
 
 import Chisel.throwException
-import chipsalliance.rocketchip.config.{Config, Parameters}
+import chipsalliance.rocketchipRT.config.{Config, Parameters}
 import chisel3.internal.firrtl.Circuit
 
 trait HasRocketChipStageUtils {

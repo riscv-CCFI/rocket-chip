@@ -1,8 +1,8 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.diplomaticobjectmodel.model
+package freechips.rocketchipRT.diplomaticobjectmodel.model
 
-import freechips.rocketchip.util.{Code, IdentityCode, ParityCode, SECCode, SECDEDCode}
+import freechips.rocketchipRT.util.{Code, IdentityCode, ParityCode, SECCode, SECDEDCode}
 
 trait OMCache extends OMDevice {
   def memoryRegions(): Seq[OMMemoryRegion]

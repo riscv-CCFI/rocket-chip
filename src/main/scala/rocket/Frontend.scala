@@ -1,19 +1,19 @@
 // See LICENSE.Berkeley for license details.
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.rocket
+package freechips.rocketchipRT.rocket
 
 import Chisel._
 import Chisel.ImplicitConversions._
 import chisel3.{withClock,withReset}
 import chisel3.internal.sourceinfo.SourceInfo
 import chisel3.experimental.chiselName
-import freechips.rocketchip.config._
-import freechips.rocketchip.diplomacy._
-import freechips.rocketchip.tile._
-import freechips.rocketchip.util._
-import freechips.rocketchip.util.property._
-import freechips.rocketchip.diplomaticobjectmodel.logicaltree.ICacheLogicalTreeNode
+import freechips.rocketchipRT.config._
+import freechips.rocketchipRT.diplomacy._
+import freechips.rocketchipRT.tile._
+import freechips.rocketchipRT.util._
+import freechips.rocketchipRT.util.property._
+import freechips.rocketchipRT.diplomaticobjectmodel.logicaltree.ICacheLogicalTreeNode
 
 class FrontendReq(implicit p: Parameters) extends CoreBundle()(p) {
   val pc = UInt(width = vaddrBitsExtended)

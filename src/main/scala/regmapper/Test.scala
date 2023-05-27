@@ -1,11 +1,11 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.regmapper
+package freechips.rocketchipRT.regmapper
 
 import Chisel._
-import freechips.rocketchip.config.Parameters
-import freechips.rocketchip.diplomacy.LazyModuleImp
-import freechips.rocketchip.util.{Pow2ClockDivider}
+import freechips.rocketchipRT.config.Parameters
+import freechips.rocketchipRT.diplomacy.LazyModuleImp
+import freechips.rocketchipRT.util.{Pow2ClockDivider}
 
 object LFSR16Seed
 {

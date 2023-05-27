@@ -1,10 +1,10 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.interrupts
+package freechips.rocketchipRT.interrupts
 
-import freechips.rocketchip.config.Parameters
-import freechips.rocketchip.diplomacy.{LazyModule, LazyModuleImp}
-import freechips.rocketchip.util.BlockDuringReset
+import freechips.rocketchipRT.config.Parameters
+import freechips.rocketchipRT.diplomacy.{LazyModule, LazyModuleImp}
+import freechips.rocketchipRT.util.BlockDuringReset
 
 /** BlockDuringReset ensures that no interrupt is raised while reset is raised. */
 class IntBlockDuringReset(stretchResetCycles: Int = 0)(implicit p: Parameters) extends LazyModule

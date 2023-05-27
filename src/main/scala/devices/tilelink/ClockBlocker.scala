@@ -1,14 +1,14 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.devices.tilelink
+package freechips.rocketchipRT.devices.tilelink
 
 import Chisel._
-import freechips.rocketchip.config.Parameters
-import freechips.rocketchip.diplomacy._
-import freechips.rocketchip.prci._
-import freechips.rocketchip.regmapper._
-import freechips.rocketchip.tilelink._
-import freechips.rocketchip.util._
+import freechips.rocketchipRT.config.Parameters
+import freechips.rocketchipRT.diplomacy._
+import freechips.rocketchipRT.prci._
+import freechips.rocketchipRT.regmapper._
+import freechips.rocketchipRT.tilelink._
+import freechips.rocketchipRT.util._
 
 /** This device extends a basic bus blocker by allowing it to gate the clocks of the device
   * whose tilelink port is being blocked. For now it is only possible to block

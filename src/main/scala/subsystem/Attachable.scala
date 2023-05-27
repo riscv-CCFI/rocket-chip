@@ -1,13 +1,13 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.subsystem
+package freechips.rocketchipRT.subsystem
 
-import freechips.rocketchip.config.Parameters
-import freechips.rocketchip.diplomacy.{LazyModule, LazyScope}
-import freechips.rocketchip.diplomaticobjectmodel.HasLogicalTreeNode
-import freechips.rocketchip.prci.ClockGroupEphemeralNode
-import freechips.rocketchip.tilelink.TLBusWrapper
-import freechips.rocketchip.util.{Location, LocationMap}
+import freechips.rocketchipRT.config.Parameters
+import freechips.rocketchipRT.diplomacy.{LazyModule, LazyScope}
+import freechips.rocketchipRT.diplomaticobjectmodel.HasLogicalTreeNode
+import freechips.rocketchipRT.prci.ClockGroupEphemeralNode
+import freechips.rocketchipRT.tilelink.TLBusWrapper
+import freechips.rocketchipRT.util.{Location, LocationMap}
 
 /** These traits are intended to make it possible to configure to which
   * buses optional devices are attached, even after a subsystem has been instantiated.

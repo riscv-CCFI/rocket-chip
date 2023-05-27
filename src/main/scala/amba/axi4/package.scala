@@ -1,9 +1,9 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.amba
+package freechips.rocketchipRT.amba
 
-import freechips.rocketchip.diplomacy.{HasClockDomainCrossing, _}
-import freechips.rocketchip.prci.{HasResetDomainCrossing}
+import freechips.rocketchipRT.diplomacy.{HasClockDomainCrossing, _}
+import freechips.rocketchipRT.prci.{HasResetDomainCrossing}
 
 package object axi4
 {

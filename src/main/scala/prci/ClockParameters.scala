@@ -1,8 +1,8 @@
 // See LICENSE.SiFive for license details.
-package freechips.rocketchip.prci
+package freechips.rocketchipRT.prci
 
 import chisel3.internal.sourceinfo.SourceInfo
-import freechips.rocketchip.config.Parameters
+import freechips.rocketchipRT.config.Parameters
 import scala.collection.immutable.ListMap
 
 // All Clock parameters specify only the PLL values required at power-on

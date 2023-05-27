@@ -1,13 +1,13 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.diplomaticobjectmodel.logicaltree
+package freechips.rocketchipRT.diplomaticobjectmodel.logicaltree
 
-import freechips.rocketchip.config._
-import freechips.rocketchip.devices.debug._
-import freechips.rocketchip.diplomacy._
-import freechips.rocketchip.diplomaticobjectmodel.DiplomaticObjectModelAddressing
-import freechips.rocketchip.diplomaticobjectmodel.model._
-import freechips.rocketchip.tile.MaxHartIdBits
+import freechips.rocketchipRT.config._
+import freechips.rocketchipRT.devices.debug._
+import freechips.rocketchipRT.diplomacy._
+import freechips.rocketchipRT.diplomaticobjectmodel.DiplomaticObjectModelAddressing
+import freechips.rocketchipRT.diplomaticobjectmodel.model._
+import freechips.rocketchipRT.tile.MaxHartIdBits
 
 class CLINTLogicalTreeNode(device: SimpleDevice, f: => OMRegisterMap) extends LogicalTreeNode(() => Some(device)) {
 

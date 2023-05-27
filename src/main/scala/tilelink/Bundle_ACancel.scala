@@ -1,10 +1,10 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.tilelink
+package freechips.rocketchipRT.tilelink
 
 import chisel3._
 import chisel3.util._
-import freechips.rocketchip.util._
+import freechips.rocketchipRT.util._
 import scala.collection.immutable.ListMap
 
 class TLBundle_ACancel(val params: TLBundleParameters) extends Record

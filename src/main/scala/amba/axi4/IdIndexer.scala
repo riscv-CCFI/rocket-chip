@@ -1,11 +1,11 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.amba.axi4
+package freechips.rocketchipRT.amba.axi4
 
 import Chisel._
-import freechips.rocketchip.config.Parameters
-import freechips.rocketchip.diplomacy._
-import freechips.rocketchip.util._
+import freechips.rocketchipRT.config.Parameters
+import freechips.rocketchipRT.diplomacy._
+import freechips.rocketchipRT.util._
 
 case object AXI4ExtraId extends ControlKey[UInt]("extra_id")
 case class AXI4ExtraIdField(width: Int) extends SimpleBundleField(AXI4ExtraId)(UInt(OUTPUT, width = width), UInt(0))

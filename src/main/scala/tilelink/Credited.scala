@@ -1,13 +1,13 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.tilelink
+package freechips.rocketchipRT.tilelink
 
 import chisel3._
 import chisel3.util.Decoupled
-import freechips.rocketchip.config.Parameters
-import freechips.rocketchip.diplomacy._
-import freechips.rocketchip.subsystem.CrossingWrapper
-import freechips.rocketchip.util._
+import freechips.rocketchipRT.config.Parameters
+import freechips.rocketchipRT.diplomacy._
+import freechips.rocketchipRT.subsystem.CrossingWrapper
+import freechips.rocketchipRT.util._
 
 class TLCreditedBuffer(delay: TLCreditedDelay)(implicit p: Parameters) extends LazyModule
 {
@@ -84,7 +84,7 @@ object TLCreditedSink {
 }
 
 /** Synthesizeable unit tests */
-import freechips.rocketchip.unittest._
+import freechips.rocketchipRT.unittest._
 
 class TLRAMCreditedCrossing(txns: Int, params: CreditedCrossing)(implicit p: Parameters) extends LazyModule {
   val model = LazyModule(new TLRAMModel("CreditedCrossing"))

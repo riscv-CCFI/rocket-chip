@@ -1,14 +1,14 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.amba.axi4
+package freechips.rocketchipRT.amba.axi4
 
 import Chisel._
 import chisel3.util.IrrevocableIO
-import freechips.rocketchip.config._
-import freechips.rocketchip.diplomacy._
-import freechips.rocketchip.util._
-import freechips.rocketchip.unittest._
-import freechips.rocketchip.tilelink._
+import freechips.rocketchipRT.config._
+import freechips.rocketchipRT.diplomacy._
+import freechips.rocketchipRT.util._
+import freechips.rocketchipRT.unittest._
+import freechips.rocketchipRT.tilelink._
 
 class AXI4Xbar(
   arbitrationPolicy: TLArbiter.Policy = TLArbiter.roundRobin,

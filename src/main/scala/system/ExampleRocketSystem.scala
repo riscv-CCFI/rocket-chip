@@ -1,11 +1,11 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.system
+package freechips.rocketchipRT.system
 
-import freechips.rocketchip.config.Parameters
-import freechips.rocketchip.subsystem._
-import freechips.rocketchip.devices.tilelink._
-import freechips.rocketchip.util.DontTouch
+import freechips.rocketchipRT.config.Parameters
+import freechips.rocketchipRT.subsystem._
+import freechips.rocketchipRT.devices.tilelink._
+import freechips.rocketchipRT.util.DontTouch
 
 /** Example Top with periphery devices and ports, and a Rocket subsystem */
 class ExampleRocketSystem(implicit p: Parameters) extends RocketSubsystem

@@ -1,14 +1,14 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.tilelink
+package freechips.rocketchipRT.tilelink
 
 import chisel3._
 import chisel3.util._
 import chisel3.internal.sourceinfo.SourceLine
-import freechips.rocketchip.config.Parameters
-import freechips.rocketchip.diplomacy._
-import freechips.rocketchip.util.PlusArg
-import freechips.rocketchip.formal._
+import freechips.rocketchipRT.config.Parameters
+import freechips.rocketchipRT.diplomacy._
+import freechips.rocketchipRT.util.PlusArg
+import freechips.rocketchipRT.formal._
 
 case class TLMonitorArgs(edge: TLEdge)
 

@@ -1,10 +1,10 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.devices.debug
-import freechips.rocketchip.config._
-import freechips.rocketchip.diplomacy._
-import freechips.rocketchip.regmapper._
-import freechips.rocketchip.amba.apb.{APBRegisterNode}
+package freechips.rocketchipRT.devices.debug
+import freechips.rocketchipRT.config._
+import freechips.rocketchipRT.diplomacy._
+import freechips.rocketchipRT.regmapper._
+import freechips.rocketchipRT.amba.apb.{APBRegisterNode}
 
 case object APBDebugRegistersKey extends Field[Map[Int, Seq[RegField]]](Map())
 

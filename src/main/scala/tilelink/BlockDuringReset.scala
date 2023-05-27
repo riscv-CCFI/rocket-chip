@@ -1,11 +1,11 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.tilelink
+package freechips.rocketchipRT.tilelink
 
 import chisel3._
-import freechips.rocketchip.config.Parameters
-import freechips.rocketchip.diplomacy._
-import freechips.rocketchip.util.{BlockDuringReset, EnhancedChisel3Assign}
+import freechips.rocketchipRT.config.Parameters
+import freechips.rocketchipRT.diplomacy._
+import freechips.rocketchipRT.util.{BlockDuringReset, EnhancedChisel3Assign}
 
 /** BlockDuringReset ensures that no channel admits to be ready or valid while reset is raised. */
 class TLBlockDuringReset(stretchResetCycles: Int = 0)

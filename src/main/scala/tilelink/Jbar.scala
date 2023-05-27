@@ -1,10 +1,10 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.tilelink
+package freechips.rocketchipRT.tilelink
 
 import Chisel._
-import freechips.rocketchip.config._
-import freechips.rocketchip.diplomacy._
+import freechips.rocketchipRT.config._
+import freechips.rocketchipRT.diplomacy._
 
 class TLJbar(policy: TLArbiter.Policy = TLArbiter.roundRobin)(implicit p: Parameters) extends LazyModule
 {
@@ -51,7 +51,7 @@ object TLJbar
 }
 
 /** Synthesizeable unit tests */
-import freechips.rocketchip.unittest._
+import freechips.rocketchipRT.unittest._
 
 class TLJbarTestImp(nClients: Int, nManagers: Int, txns: Int)(implicit p: Parameters) extends LazyModule {
   val jbar = LazyModule(new TLJbar)

@@ -1,11 +1,11 @@
 // See LICENSE.jtag for license details.
 
-package freechips.rocketchip.jtag
+package freechips.rocketchipRT.jtag
 
 import chisel3._
 import chisel3.util._
-import freechips.rocketchip.config.{Parameters}
-import freechips.rocketchip.util.property
+import freechips.rocketchipRT.config.{Parameters}
+import freechips.rocketchipRT.util.property
 
 object JtagState {
   sealed abstract class State(val id: Int) {

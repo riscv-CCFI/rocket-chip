@@ -1,9 +1,9 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.diplomaticobjectmodel.model
+package freechips.rocketchipRT.diplomaticobjectmodel.model
 
-import freechips.rocketchip.diplomacy.{ResourceBindings, IdRange, IdMapEntry}
-import freechips.rocketchip.diplomaticobjectmodel.DiplomaticObjectModelAddressing
+import freechips.rocketchipRT.diplomacy.{ResourceBindings, IdRange, IdMapEntry}
+import freechips.rocketchipRT.diplomaticobjectmodel.DiplomaticObjectModelAddressing
 
 sealed trait PortType extends OMEnum
 case object SystemPortType extends PortType

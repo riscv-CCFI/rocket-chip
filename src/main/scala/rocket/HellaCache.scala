@@ -1,17 +1,17 @@
 // See LICENSE.SiFive for license details.
 // See LICENSE.Berkeley for license details.
 
-package freechips.rocketchip.rocket
+package freechips.rocketchipRT.rocket
 
 import Chisel._
 import chisel3.dontTouch
-import freechips.rocketchip.amba._
-import freechips.rocketchip.config.{Parameters, Field}
-import freechips.rocketchip.diplomacy._
-import freechips.rocketchip.diplomaticobjectmodel.model.OMSRAM
-import freechips.rocketchip.tile._
-import freechips.rocketchip.tilelink._
-import freechips.rocketchip.util._
+import freechips.rocketchipRT.amba._
+import freechips.rocketchipRT.config.{Parameters, Field}
+import freechips.rocketchipRT.diplomacy._
+import freechips.rocketchipRT.diplomaticobjectmodel.model.OMSRAM
+import freechips.rocketchipRT.tile._
+import freechips.rocketchipRT.tilelink._
+import freechips.rocketchipRT.util._
 import scala.collection.mutable.ListBuffer
 
 case class DCacheParams(

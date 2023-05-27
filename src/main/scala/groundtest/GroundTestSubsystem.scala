@@ -1,14 +1,14 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.groundtest
+package freechips.rocketchipRT.groundtest
 
 import Chisel._
 import chisel3.dontTouch
-import freechips.rocketchip.config.{Parameters}
-import freechips.rocketchip.diplomacy.{AddressSet, LazyModule}
-import freechips.rocketchip.interrupts.{IntSinkNode, IntSinkPortSimple}
-import freechips.rocketchip.subsystem.{BaseSubsystem, BaseSubsystemModuleImp, HasTiles, CanHaveMasterAXI4MemPort}
-import freechips.rocketchip.tilelink.{TLRAM, TLFragmenter}
+import freechips.rocketchipRT.config.{Parameters}
+import freechips.rocketchipRT.diplomacy.{AddressSet, LazyModule}
+import freechips.rocketchipRT.interrupts.{IntSinkNode, IntSinkPortSimple}
+import freechips.rocketchipRT.subsystem.{BaseSubsystem, BaseSubsystemModuleImp, HasTiles, CanHaveMasterAXI4MemPort}
+import freechips.rocketchipRT.tilelink.{TLRAM, TLFragmenter}
 
 class GroundTestSubsystem(implicit p: Parameters)
   extends BaseSubsystem

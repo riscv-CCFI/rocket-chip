@@ -1,17 +1,17 @@
 // See LICENSE.Berkeley for license details.
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.tile
+package freechips.rocketchipRT.tile
 
 import chisel3._
 import chisel3.util._
 import chisel3.util.HasBlackBoxResource
 import chisel3.experimental.IntParam
-import freechips.rocketchip.config._
-import freechips.rocketchip.diplomacy._
-import freechips.rocketchip.rocket._
-import freechips.rocketchip.tilelink._
-import freechips.rocketchip.util.InOrderArbiter
+import freechips.rocketchipRT.config._
+import freechips.rocketchipRT.diplomacy._
+import freechips.rocketchipRT.rocket._
+import freechips.rocketchipRT.tilelink._
+import freechips.rocketchipRT.util.InOrderArbiter
 
 case object BuildRoCC extends Field[Seq[Parameters => LazyRoCC]](Nil)
 

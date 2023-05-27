@@ -1,12 +1,12 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.diplomaticobjectmodel.logicaltree
+package freechips.rocketchipRT.diplomaticobjectmodel.logicaltree
 
-import freechips.rocketchip.diplomacy.{ResourceBindings, SimpleDevice}
-import freechips.rocketchip.diplomaticobjectmodel.DiplomaticObjectModelAddressing
-import freechips.rocketchip.diplomaticobjectmodel.model._
-import freechips.rocketchip.rocket.{DCacheParams, HellaCache, ICache, ICacheParams}
-import freechips.rocketchip.tile.{CoreParams, RocketTile}
+import freechips.rocketchipRT.diplomacy.{ResourceBindings, SimpleDevice}
+import freechips.rocketchipRT.diplomaticobjectmodel.DiplomaticObjectModelAddressing
+import freechips.rocketchipRT.diplomaticobjectmodel.model._
+import freechips.rocketchipRT.rocket.{DCacheParams, HellaCache, ICache, ICacheParams}
+import freechips.rocketchipRT.tile.{CoreParams, RocketTile}
 
 
 /**

@@ -1,6 +1,6 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.stage
+package freechips.rocketchipRT.stage
 
 class RocketChipOptions private[stage] (
                                          val topModule:         Option[Class[_ <: Any]] = None,

@@ -1,10 +1,10 @@
 // See LICENSE.SiFive for license details.
-package freechips.rocketchip.prci
+package freechips.rocketchipRT.prci
 
 import chisel3._
 import chisel3.util.log2Ceil
-import freechips.rocketchip.config.Parameters
-import freechips.rocketchip.diplomacy.{LazyModule, LazyModuleImp, ValName}
+import freechips.rocketchipRT.config.Parameters
+import freechips.rocketchipRT.diplomacy.{LazyModule, LazyModuleImp, ValName}
 
 /** This adapter takes an input reset and stretches it.
   *

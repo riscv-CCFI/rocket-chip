@@ -1,10 +1,10 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.util
+package freechips.rocketchipRT.util
 
 import Chisel._
-import freechips.rocketchip.config._
-import freechips.rocketchip.diplomacy.{BundleBridgeEphemeralNode, ValName}
+import freechips.rocketchipRT.config._
+import freechips.rocketchipRT.diplomacy.{BundleBridgeEphemeralNode, ValName}
 
 case object IncludePSDTest extends Field[Boolean](false)
 case object PSDTestModeBroadcastKey extends Field(

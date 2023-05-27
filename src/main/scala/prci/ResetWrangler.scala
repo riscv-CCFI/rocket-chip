@@ -1,11 +1,11 @@
 // See LICENSE for license details.
-package freechips.rocketchip.prci
+package freechips.rocketchipRT.prci
 
 import chisel3._
 import chisel3.util._
-import freechips.rocketchip.config._
-import freechips.rocketchip.diplomacy._
-import freechips.rocketchip.util._
+import freechips.rocketchipRT.config._
+import freechips.rocketchipRT.diplomacy._
+import freechips.rocketchipRT.util._
 
 class ResetWrangler(debounceNs: Double = 100000)(implicit p: Parameters) extends LazyModule
 {

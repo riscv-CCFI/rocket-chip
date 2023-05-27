@@ -1,9 +1,9 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.tilelink
+package freechips.rocketchipRT.tilelink
 
 import Chisel._
-import freechips.rocketchip.util._
+import freechips.rocketchipRT.util._
 import scala.collection.immutable.ListMap
 
 abstract class TLBundleBase(params: TLBundleParameters) extends GenericParameterizedBundle(params)

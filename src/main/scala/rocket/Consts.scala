@@ -1,9 +1,9 @@
 // See LICENSE.Berkeley for license details.
 
-package freechips.rocketchip.rocket.constants
+package freechips.rocketchipRT.rocket.constants
 
 import Chisel._
-import freechips.rocketchip.util._
+import freechips.rocketchipRT.util._
 
 trait ScalarOpConstants {
   val SZ_BR = 3

@@ -1,14 +1,14 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.amba.ahb
+package freechips.rocketchipRT.amba.ahb
 
 import Chisel._
-import freechips.rocketchip.config.Parameters
-import freechips.rocketchip.diplomacy._
-import freechips.rocketchip.diplomaticobjectmodel.logicaltree.{BusMemoryLogicalTreeNode, LogicalModuleTree, LogicalTreeNode}
-import freechips.rocketchip.diplomaticobjectmodel.model.AHB_Lite
-import freechips.rocketchip.util._
-import freechips.rocketchip.tilelink.LFSRNoiseMaker
+import freechips.rocketchipRT.config.Parameters
+import freechips.rocketchipRT.diplomacy._
+import freechips.rocketchipRT.diplomaticobjectmodel.logicaltree.{BusMemoryLogicalTreeNode, LogicalModuleTree, LogicalTreeNode}
+import freechips.rocketchipRT.diplomaticobjectmodel.model.AHB_Lite
+import freechips.rocketchipRT.util._
+import freechips.rocketchipRT.tilelink.LFSRNoiseMaker
 
 class AHBRAM(
     address: AddressSet,

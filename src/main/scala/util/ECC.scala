@@ -1,6 +1,6 @@
 // See LICENSE.Berkeley for license details.
 
-package freechips.rocketchip.util
+package freechips.rocketchipRT.util
 
 import Chisel._
 import chisel3.util.random.LFSR
@@ -232,7 +232,7 @@ object Code {
 }
 
 /** Synthesizeable unit tests */
-import freechips.rocketchip.unittest._
+import freechips.rocketchipRT.unittest._
 
 class ECCTest(k: Int, timeout: Int = 500000) extends UnitTest(timeout) {
   val code = new SECDEDCode

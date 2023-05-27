@@ -1,15 +1,15 @@
 // See LICENSE.SiFive for license details.
 // See LICENSE.Berkeley for license details.
 
-package freechips.rocketchip.groundtest
+package freechips.rocketchipRT.groundtest
 
 import Chisel._
-import freechips.rocketchip.config._
-import freechips.rocketchip.diplomacy._
-import freechips.rocketchip.interrupts._
-import freechips.rocketchip.rocket.{DCache, ICacheParams, NonBlockingDCache, RocketCoreParams}
-import freechips.rocketchip.tile._
-import freechips.rocketchip.tilelink._
+import freechips.rocketchipRT.config._
+import freechips.rocketchipRT.diplomacy._
+import freechips.rocketchipRT.interrupts._
+import freechips.rocketchipRT.rocket.{DCache, ICacheParams, NonBlockingDCache, RocketCoreParams}
+import freechips.rocketchipRT.tile._
+import freechips.rocketchipRT.tilelink._
 
 trait GroundTestTileParams extends TileParams {
   val memStart: BigInt

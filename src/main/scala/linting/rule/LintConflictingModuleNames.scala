@@ -1,6 +1,6 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.linting
+package freechips.rocketchipRT.linting
 package rule
 
 import firrtl._
@@ -8,7 +8,7 @@ import firrtl.annotations.{IsModule, SingleTargetAnnotation, Target}
 import firrtl.ir._
 import firrtl.options.Dependency
 
-import freechips.rocketchip.transforms.naming.RenameDesiredNames
+import freechips.rocketchipRT.transforms.naming.RenameDesiredNames
 
 import chisel3.aop.{Aspect, Select}
 import chisel3.RawModule

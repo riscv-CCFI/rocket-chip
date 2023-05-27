@@ -1,7 +1,7 @@
 // See LICENSE.Berkeley for license details.
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.util
+package freechips.rocketchipRT.util
 
 import chisel3._
 import chisel3.experimental.ChiselEnum

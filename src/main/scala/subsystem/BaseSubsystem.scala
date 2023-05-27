@@ -1,14 +1,14 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.subsystem
+package freechips.rocketchipRT.subsystem
 
 import Chisel._
-import freechips.rocketchip.config.{Field, Parameters}
-import freechips.rocketchip.diplomacy._
-import freechips.rocketchip.diplomaticobjectmodel.logicaltree._
-import freechips.rocketchip.prci._
-import freechips.rocketchip.tilelink.TLBusWrapper
-import freechips.rocketchip.util._
+import freechips.rocketchipRT.config.{Field, Parameters}
+import freechips.rocketchipRT.diplomacy._
+import freechips.rocketchipRT.diplomaticobjectmodel.logicaltree._
+import freechips.rocketchipRT.prci._
+import freechips.rocketchipRT.tilelink.TLBusWrapper
+import freechips.rocketchipRT.util._
 
 case object SubsystemDriveAsyncClockGroupsKey extends Field[Option[ClockGroupDriverParameters]](Some(ClockGroupDriverParameters(1)))
 case object AsyncClockGroupsKey extends Field[ClockGroupEphemeralNode](ClockGroupEphemeralNode()(ValName("clock_sources")))

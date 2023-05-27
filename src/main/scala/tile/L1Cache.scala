@@ -1,10 +1,10 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.tile
+package freechips.rocketchipRT.tile
 
 import Chisel._
 
-import freechips.rocketchip.config.Parameters
+import freechips.rocketchipRT.config.Parameters
 
 trait L1CacheParams {
   def nSets:         Int

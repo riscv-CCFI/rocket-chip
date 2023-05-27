@@ -1,16 +1,16 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.tilelink
+package freechips.rocketchipRT.tilelink
 
 import chisel3._
 import chisel3.util._
-import freechips.rocketchip.util.CompileOptions.NotStrictInferReset
-import freechips.rocketchip.config.Parameters
-import freechips.rocketchip.diplomacy._
-import freechips.rocketchip.regmapper._
-import freechips.rocketchip.interrupts._
-import freechips.rocketchip.util._
-import freechips.rocketchip.amba.AMBAProt
+import freechips.rocketchipRT.util.CompileOptions.NotStrictInferReset
+import freechips.rocketchipRT.config.Parameters
+import freechips.rocketchipRT.diplomacy._
+import freechips.rocketchipRT.regmapper._
+import freechips.rocketchipRT.interrupts._
+import freechips.rocketchipRT.util._
+import freechips.rocketchipRT.amba.AMBAProt
 import scala.math.{min,max}
 
 case class TLBroadcastControlParams(

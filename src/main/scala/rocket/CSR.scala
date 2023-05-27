@@ -1,16 +1,16 @@
 // See LICENSE.SiFive for license details.
 // See LICENSE.Berkeley for license details.
 
-package freechips.rocketchip.rocket
+package freechips.rocketchipRT.rocket
 
 import Chisel._
 import Chisel.ImplicitConversions._
 import chisel3.{DontCare, WireInit, withClock}
-import freechips.rocketchip.config.Parameters
-import freechips.rocketchip.devices.debug.DebugModuleKey
-import freechips.rocketchip.tile._
-import freechips.rocketchip.util._
-import freechips.rocketchip.util.property._
+import freechips.rocketchipRT.config.Parameters
+import freechips.rocketchipRT.devices.debug.DebugModuleKey
+import freechips.rocketchipRT.tile._
+import freechips.rocketchipRT.util._
+import freechips.rocketchipRT.util.property._
 import scala.collection.mutable.LinkedHashMap
 import Instructions._
 

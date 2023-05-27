@@ -1,10 +1,10 @@
 // See LICENSE.SiFive for license details.
 // See LICENSE.Berkeley for license details.
-package freechips.rocketchip.prci
+package freechips.rocketchipRT.prci
 
 import Chisel._
 import chisel3.experimental.IO
-import freechips.rocketchip.diplomacy._
+import freechips.rocketchipRT.diplomacy._
 
 object IOHelper {
 

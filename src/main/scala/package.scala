@@ -2,6 +2,6 @@
 
 package freechips
 
-package object rocketchip {
-  val config = chipsalliance.rocketchip.config
+package object rocketchipRT {
+  val config = chipsalliance.rocketchipRT.config
 }

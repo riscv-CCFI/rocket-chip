@@ -1,16 +1,16 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.unittest
+package freechips.rocketchipRT.unittest
 
 import Chisel._
-import freechips.rocketchip.amba.ahb._
-import freechips.rocketchip.amba.apb._
-import freechips.rocketchip.amba.axi4._
-import freechips.rocketchip.config._
-import freechips.rocketchip.subsystem.{BaseSubsystemConfig}
-import freechips.rocketchip.devices.tilelink._
-import freechips.rocketchip.tilelink._
-import freechips.rocketchip.util._
+import freechips.rocketchipRT.amba.ahb._
+import freechips.rocketchipRT.amba.apb._
+import freechips.rocketchipRT.amba.axi4._
+import freechips.rocketchipRT.config._
+import freechips.rocketchipRT.subsystem.{BaseSubsystemConfig}
+import freechips.rocketchipRT.devices.tilelink._
+import freechips.rocketchipRT.tilelink._
+import freechips.rocketchipRT.util._
 
 case object TestDurationMultiplier extends Field[Int]
 

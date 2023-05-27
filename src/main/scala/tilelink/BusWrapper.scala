@@ -1,17 +1,17 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.tilelink
+package freechips.rocketchipRT.tilelink
 
 import Chisel._
-import freechips.rocketchip.config.Parameters
-import freechips.rocketchip.diplomacy._
+import freechips.rocketchipRT.config.Parameters
+import freechips.rocketchipRT.diplomacy._
 
 // TODO This class should be moved to package subsystem to resolve
 //      the dependency awkwardness of the following imports
-import freechips.rocketchip.devices.tilelink._
-import freechips.rocketchip.prci._
-import freechips.rocketchip.subsystem._
-import freechips.rocketchip.util._
+import freechips.rocketchipRT.devices.tilelink._
+import freechips.rocketchipRT.prci._
+import freechips.rocketchipRT.subsystem._
+import freechips.rocketchipRT.util._
 
 /** Specifies widths of various attachement points in the SoC */
 trait HasTLBusParams {

@@ -1,6 +1,6 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.util
+package freechips.rocketchipRT.util
 
 // To mix this trait, you must supply:
 //   override def canEqual(that: Any): Boolean = that.isInstanceOf[YourClass]

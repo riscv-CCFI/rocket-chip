@@ -1,12 +1,12 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.prci
+package freechips.rocketchipRT.prci
 
 import chisel3._
-import freechips.rocketchip.config.{Parameters}
-import freechips.rocketchip.diplomacy._
-import freechips.rocketchip.diplomacy.BundleBridgeNexus.fillN
-import freechips.rocketchip.util.{BlockDuringReset, Blockable}
+import freechips.rocketchipRT.config.{Parameters}
+import freechips.rocketchipRT.diplomacy._
+import freechips.rocketchipRT.diplomacy.BundleBridgeNexus.fillN
+import freechips.rocketchipRT.util.{BlockDuringReset, Blockable}
 
 object BundleBridgeBlockDuringReset {
   def apply[T <: Data : Blockable](

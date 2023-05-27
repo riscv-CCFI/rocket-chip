@@ -1,13 +1,13 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.devices.debug
+package freechips.rocketchipRT.devices.debug
 
 import chisel3._
 import chisel3.util._
 
-import freechips.rocketchip.config._
-import freechips.rocketchip.jtag._
-import freechips.rocketchip.util.property
+import freechips.rocketchipRT.config._
+import freechips.rocketchipRT.jtag._
+import freechips.rocketchipRT.util.property
 
 
 case class JtagDTMConfig (

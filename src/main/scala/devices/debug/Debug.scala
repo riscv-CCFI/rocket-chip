@@ -1,24 +1,24 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.devices.debug
+package freechips.rocketchipRT.devices.debug
 
 
 import chisel3._
 import chisel3.util._
-import freechips.rocketchip.config._
-import freechips.rocketchip.diplomacy._
-import freechips.rocketchip.regmapper._
-import freechips.rocketchip.rocket.{CSRs, Instructions}
-import freechips.rocketchip.tile.MaxHartIdBits
-import freechips.rocketchip.tilelink._
-import freechips.rocketchip.devices.tilelink.{DevNullParams, TLError}
-import freechips.rocketchip.interrupts._
-import freechips.rocketchip.util._
-import freechips.rocketchip.devices.debug.systembusaccess._
-import freechips.rocketchip.devices.tilelink.TLBusBypass
-import freechips.rocketchip.diplomaticobjectmodel.logicaltree.DebugLogicalTreeNode
-import freechips.rocketchip.amba.apb.{APBToTL, APBFanout}
-import freechips.rocketchip.util.BooleanToAugmentedBoolean
+import freechips.rocketchipRT.config._
+import freechips.rocketchipRT.diplomacy._
+import freechips.rocketchipRT.regmapper._
+import freechips.rocketchipRT.rocket.{CSRs, Instructions}
+import freechips.rocketchipRT.tile.MaxHartIdBits
+import freechips.rocketchipRT.tilelink._
+import freechips.rocketchipRT.devices.tilelink.{DevNullParams, TLError}
+import freechips.rocketchipRT.interrupts._
+import freechips.rocketchipRT.util._
+import freechips.rocketchipRT.devices.debug.systembusaccess._
+import freechips.rocketchipRT.devices.tilelink.TLBusBypass
+import freechips.rocketchipRT.diplomaticobjectmodel.logicaltree.DebugLogicalTreeNode
+import freechips.rocketchipRT.amba.apb.{APBToTL, APBFanout}
+import freechips.rocketchipRT.util.BooleanToAugmentedBoolean
 
 object DsbBusConsts {
   def sbAddrWidth = 12

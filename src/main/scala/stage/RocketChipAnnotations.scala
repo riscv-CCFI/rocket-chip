@@ -1,6 +1,6 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.stage
+package freechips.rocketchipRT.stage
 
 import chisel3.experimental.BaseModule
 import firrtl.annotations.{Annotation, NoTargetAnnotation}

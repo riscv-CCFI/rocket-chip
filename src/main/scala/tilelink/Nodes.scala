@@ -1,12 +1,12 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.tilelink
+package freechips.rocketchipRT.tilelink
 
 import chisel3._
 import chisel3.internal.sourceinfo.SourceInfo
-import freechips.rocketchip.config.{Field, Parameters}
-import freechips.rocketchip.diplomacy._
-import freechips.rocketchip.util.{AsyncQueueParams,RationalDirection}
+import freechips.rocketchipRT.config.{Field, Parameters}
+import freechips.rocketchipRT.diplomacy._
+import freechips.rocketchipRT.util.{AsyncQueueParams,RationalDirection}
 
 case object TLMonitorBuilder extends Field[TLMonitorArgs => TLMonitorBase](args => new TLMonitor(args))
 

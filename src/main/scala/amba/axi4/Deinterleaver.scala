@@ -1,13 +1,13 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.amba.axi4
+package freechips.rocketchipRT.amba.axi4
 
 import chisel3._
 import chisel3.util.{Cat, isPow2, log2Ceil, ReadyValidIO,
   log2Up, OHToUInt, Queue, QueueIO, UIntToOH}
-import freechips.rocketchip.config.Parameters
-import freechips.rocketchip.diplomacy._
-import freechips.rocketchip.util.leftOR
+import freechips.rocketchipRT.config.Parameters
+import freechips.rocketchipRT.diplomacy._
+import freechips.rocketchipRT.util.leftOR
 
 /** This adapter deinterleaves read responses on the R channel.
   *

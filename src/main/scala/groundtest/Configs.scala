@@ -1,15 +1,15 @@
 // See LICENSE.SiFive for license details.
 // See LICENSE.Berkeley for license details.
 
-package freechips.rocketchip.groundtest
+package freechips.rocketchipRT.groundtest
 
-import freechips.rocketchip.config.Config
-import freechips.rocketchip.devices.tilelink.{CLINTKey, PLICKey}
-import freechips.rocketchip.devices.debug.{DebugModuleKey}
-import freechips.rocketchip.subsystem._
-import freechips.rocketchip.system.BaseConfig
-import freechips.rocketchip.rocket.{DCacheParams}
-import freechips.rocketchip.tile.{XLen}
+import freechips.rocketchipRT.config.Config
+import freechips.rocketchipRT.devices.tilelink.{CLINTKey, PLICKey}
+import freechips.rocketchipRT.devices.debug.{DebugModuleKey}
+import freechips.rocketchipRT.subsystem._
+import freechips.rocketchipRT.system.BaseConfig
+import freechips.rocketchipRT.rocket.{DCacheParams}
+import freechips.rocketchipRT.tile.{XLen}
 
 /** Actual testing target Configs */
 

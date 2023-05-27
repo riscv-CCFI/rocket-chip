@@ -17,17 +17,17 @@
 // Mainstream Systems (REMS) project, funded by EPSRC grant
 // EP/K008528/1.
 
-package freechips.rocketchip.groundtest
+package freechips.rocketchipRT.groundtest
  
 import Chisel._
-import freechips.rocketchip.config.{Parameters}
-import freechips.rocketchip.diplomacy.{ClockCrossingType}
-import freechips.rocketchip.rocket._
-import freechips.rocketchip.tile._
-import freechips.rocketchip.tilelink._
-import freechips.rocketchip.subsystem.{TileCrossingParamsLike, CanAttachTile}
-import freechips.rocketchip.util._
-import freechips.rocketchip.prci.{ClockSinkParameters}
+import freechips.rocketchipRT.config.{Parameters}
+import freechips.rocketchipRT.diplomacy.{ClockCrossingType}
+import freechips.rocketchipRT.rocket._
+import freechips.rocketchipRT.tile._
+import freechips.rocketchipRT.tilelink._
+import freechips.rocketchipRT.subsystem.{TileCrossingParamsLike, CanAttachTile}
+import freechips.rocketchipRT.util._
+import freechips.rocketchipRT.prci.{ClockSinkParameters}
 
 // =======
 // Outline

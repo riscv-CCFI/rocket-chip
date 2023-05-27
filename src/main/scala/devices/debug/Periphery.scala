@@ -1,20 +1,20 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.devices.debug
+package freechips.rocketchipRT.devices.debug
 
 import chisel3._
 import chisel3.experimental.{IntParam, noPrefix}
 import chisel3.util._
 import chisel3.util.HasBlackBoxResource
-import freechips.rocketchip.config.{Field, Parameters}
-import freechips.rocketchip.subsystem._
-import freechips.rocketchip.amba.apb._
-import freechips.rocketchip.diplomacy._
-import freechips.rocketchip.diplomaticobjectmodel.logicaltree.LogicalModuleTree
-import freechips.rocketchip.jtag._
-import freechips.rocketchip.util._
-import freechips.rocketchip.prci.{ClockSinkParameters, ClockSinkNode}
-import freechips.rocketchip.tilelink._
+import freechips.rocketchipRT.config.{Field, Parameters}
+import freechips.rocketchipRT.subsystem._
+import freechips.rocketchipRT.amba.apb._
+import freechips.rocketchipRT.diplomacy._
+import freechips.rocketchipRT.diplomaticobjectmodel.logicaltree.LogicalModuleTree
+import freechips.rocketchipRT.jtag._
+import freechips.rocketchipRT.util._
+import freechips.rocketchipRT.prci.{ClockSinkParameters, ClockSinkNode}
+import freechips.rocketchipRT.tilelink._
 
 /** Protocols used for communicating with external debugging tools */
 sealed trait DebugExportProtocol

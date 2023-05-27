@@ -1,6 +1,6 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.diplomaticobjectmodel.model
+package freechips.rocketchipRT.diplomaticobjectmodel.model
 
 /* The following enum names come from IP-XACT */
 sealed trait OMRegFieldWrType extends OMEnum

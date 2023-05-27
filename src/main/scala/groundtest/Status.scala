@@ -1,9 +1,9 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.groundtest
+package freechips.rocketchipRT.groundtest
 
 import Chisel._
-import freechips.rocketchip.util.ValidMux
+import freechips.rocketchipRT.util.ValidMux
 
 class GroundTestStatus extends Bundle {
   val timeout = Valid(UInt(width = 4))

@@ -1,13 +1,13 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.stage.phases
+package freechips.rocketchipRT.stage.phases
 
 import chisel3.stage.ChiselOutputFileAnnotation
 import firrtl.AnnotationSeq
 import firrtl.options.Viewer.view
 import firrtl.options.{Dependency, Phase, PreservesAll}
-import freechips.rocketchip.stage.RocketChipOptions
-import freechips.rocketchip.util.HasRocketChipStageUtils
+import freechips.rocketchipRT.stage.RocketChipOptions
+import freechips.rocketchipRT.util.HasRocketChipStageUtils
 
 /** Transforms RocketChipAnnotations into those used by other stages */
 class TransformAnnotations extends Phase with PreservesAll[Phase] with HasRocketChipStageUtils {

@@ -1,11 +1,11 @@
 // See LICENSE.Berkeley for license details.
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.util
+package freechips.rocketchipRT.util
 
 import Chisel._
 import chisel3.util.random.LFSR
-import freechips.rocketchip.config.Parameters
+import freechips.rocketchipRT.config.Parameters
 import scala.math._
 
 class ParameterizedBundle(implicit p: Parameters) extends Bundle

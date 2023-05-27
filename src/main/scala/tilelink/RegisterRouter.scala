@@ -1,14 +1,14 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.tilelink
+package freechips.rocketchipRT.tilelink
 
 import Chisel._
 import chisel3.RawModule
-import freechips.rocketchip.config.Parameters
-import freechips.rocketchip.diplomacy._
-import freechips.rocketchip.diplomaticobjectmodel.model.{OMRegister, OMRegisterMap}
-import freechips.rocketchip.regmapper._
-import freechips.rocketchip.util._
+import freechips.rocketchipRT.config.Parameters
+import freechips.rocketchipRT.diplomacy._
+import freechips.rocketchipRT.diplomaticobjectmodel.model.{OMRegister, OMRegisterMap}
+import freechips.rocketchipRT.regmapper._
+import freechips.rocketchipRT.util._
 
 import scala.math.min
 
@@ -144,7 +144,7 @@ abstract class TLRegisterRouterBase(devname: String, devcompat: Seq[String], val
   }
 
   val node = TLRegisterNode(Seq(address), device, "reg/control", concurrency, beatBytes, undefZero, executable)
-  import freechips.rocketchip.interrupts._
+  import freechips.rocketchipRT.interrupts._
   val intnode = IntSourceNode(IntSourcePortSimple(num = interrupts, resources = Seq(Resource(device, "int"))))
 }
 

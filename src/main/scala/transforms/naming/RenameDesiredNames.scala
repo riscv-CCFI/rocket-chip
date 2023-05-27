@@ -1,6 +1,6 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.transforms.naming
+package freechips.rocketchipRT.transforms.naming
 
 import firrtl._
 import firrtl.annotations.{CircuitTarget, IsModule, SingleTargetAnnotation, Target}
@@ -8,7 +8,7 @@ import firrtl.ir._
 import firrtl.options.Dependency
 import firrtl.transforms.DedupModules
 
-import freechips.rocketchip.linting.rule.DesiredNameAnnotation
+import freechips.rocketchipRT.linting.rule.DesiredNameAnnotation
 
 import scala.collection.mutable
 

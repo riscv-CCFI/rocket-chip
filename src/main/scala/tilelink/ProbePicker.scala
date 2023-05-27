@@ -1,11 +1,11 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.tilelink
+package freechips.rocketchipRT.tilelink
 
 import chisel3._
 import chisel3.util._
-import freechips.rocketchip.config.Parameters
-import freechips.rocketchip.diplomacy._
+import freechips.rocketchipRT.config.Parameters
+import freechips.rocketchipRT.diplomacy._
 
 /* A ProbePicker is used to unify multiple cache banks into one logical cache  */
 class ProbePicker(implicit p: Parameters) extends LazyModule

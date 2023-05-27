@@ -1,13 +1,13 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.amba.axis
+package freechips.rocketchipRT.amba.axis
 
 import chisel3._
 import chisel3.util._
-import freechips.rocketchip.config._
-import freechips.rocketchip.util._
-import freechips.rocketchip.diplomacy._
-import freechips.rocketchip.tilelink._
+import freechips.rocketchipRT.config._
+import freechips.rocketchipRT.util._
+import freechips.rocketchipRT.diplomacy._
+import freechips.rocketchipRT.tilelink._
 
 class AXISXbar(beatBytes: Int, policy: TLArbiter.Policy = TLArbiter.roundRobin)(implicit p: Parameters) extends LazyModule
 {

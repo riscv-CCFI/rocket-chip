@@ -1,6 +1,6 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.diplomacy
+package freechips.rocketchipRT.diplomacy
 
 
 // Use AddressSet instead -- this is just for pretty printing

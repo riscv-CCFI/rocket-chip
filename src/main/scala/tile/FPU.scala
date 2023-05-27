@@ -1,19 +1,19 @@
 // See LICENSE.Berkeley for license details.
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.tile
+package freechips.rocketchipRT.tile
 
 import Chisel.{defaultCompileOptions => _, _}
-import freechips.rocketchip.util.CompileOptions.NotStrictInferReset
+import freechips.rocketchipRT.util.CompileOptions.NotStrictInferReset
 import Chisel.ImplicitConversions._
 import chisel3.{DontCare, WireInit, withClock, withReset}
 import chisel3.internal.sourceinfo.SourceInfo
 import chisel3.experimental.{chiselName, NoChiselNamePrefix}
-import freechips.rocketchip.config.Parameters
-import freechips.rocketchip.rocket._
-import freechips.rocketchip.rocket.Instructions._
-import freechips.rocketchip.util._
-import freechips.rocketchip.util.property._
+import freechips.rocketchipRT.config.Parameters
+import freechips.rocketchipRT.rocket._
+import freechips.rocketchipRT.rocket.Instructions._
+import freechips.rocketchipRT.util._
+import freechips.rocketchipRT.util.property._
 
 case class FPUParams(
   minFLen: Int = 32,

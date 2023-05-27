@@ -1,11 +1,11 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.interrupts
+package freechips.rocketchipRT.interrupts
 
-import freechips.rocketchip.config.Parameters
-import freechips.rocketchip.diplomacy._
-import freechips.rocketchip.prci.{ResetCrossingType, NoResetCrossing, StretchedResetCrossing}
-import freechips.rocketchip.util.CreditedDelay
+import freechips.rocketchipRT.config.Parameters
+import freechips.rocketchipRT.diplomacy._
+import freechips.rocketchipRT.prci.{ResetCrossingType, NoResetCrossing, StretchedResetCrossing}
+import freechips.rocketchipRT.util.CreditedDelay
 
 trait IntOutwardCrossingHelper {
   type HelperCrossingType <: CrossingType

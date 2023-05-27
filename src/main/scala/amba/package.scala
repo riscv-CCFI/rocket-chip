@@ -1,9 +1,9 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip
+package freechips.rocketchipRT
 
 import chisel3._
-import freechips.rocketchip.util._
+import freechips.rocketchipRT.util._
 
 package object amba {
   class AMBAProtBundle extends Bundle {

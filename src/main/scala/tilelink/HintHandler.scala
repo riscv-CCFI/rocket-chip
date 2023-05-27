@@ -1,12 +1,12 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.tilelink
+package freechips.rocketchipRT.tilelink
 
 import chisel3._
-import freechips.rocketchip.config.Parameters
-import freechips.rocketchip.diplomacy._
-import freechips.rocketchip.util._
-import freechips.rocketchip.devices.tilelink.TLROM
+import freechips.rocketchipRT.config.Parameters
+import freechips.rocketchipRT.diplomacy._
+import freechips.rocketchipRT.util._
+import freechips.rocketchipRT.devices.tilelink.TLROM
 
 // Acks Hints for managers that don't support them or Acks all Hints if !passthrough
 class TLHintHandler(passthrough: Boolean = true)(implicit p: Parameters) extends LazyModule
@@ -122,7 +122,7 @@ object TLHintHandler
 }
 
 /** Synthesizeable unit tests */
-import freechips.rocketchip.unittest._
+import freechips.rocketchipRT.unittest._
 
 //TODO ensure handler will pass through hints to clients that can handle them themselves
 

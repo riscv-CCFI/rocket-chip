@@ -1,12 +1,12 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.subsystem
+package freechips.rocketchipRT.subsystem
 
-import freechips.rocketchip.config._
-import freechips.rocketchip.devices.tilelink._
-import freechips.rocketchip.diplomacy._
-import freechips.rocketchip.tilelink._
-import freechips.rocketchip.util._
+import freechips.rocketchipRT.config._
+import freechips.rocketchipRT.devices.tilelink._
+import freechips.rocketchipRT.diplomacy._
+import freechips.rocketchipRT.tilelink._
+import freechips.rocketchipRT.util._
 
 /** Parameterization of the memory-side bus created for each memory channel */
 case class MemoryBusParams(

@@ -1,11 +1,11 @@
 // See LICENSE.SiFive for license details.
-package freechips.rocketchip.prci
+package freechips.rocketchipRT.prci
 
 import chisel3._
 import chisel3.experimental.IO
-import freechips.rocketchip.config.Parameters
-import freechips.rocketchip.diplomacy.{InModuleBody, ModuleValue, ValName}
-import freechips.rocketchip.util.{RecordMap}
+import freechips.rocketchipRT.config.Parameters
+import freechips.rocketchipRT.diplomacy.{InModuleBody, ModuleValue, ValName}
+import freechips.rocketchipRT.util.{RecordMap}
 
 /** Used to parameterize the creation of simple clock group drivers */
 case class ClockGroupDriverParameters(

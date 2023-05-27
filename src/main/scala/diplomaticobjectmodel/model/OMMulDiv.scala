@@ -1,8 +1,8 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.diplomaticobjectmodel.model
+package freechips.rocketchipRT.diplomaticobjectmodel.model
 
-import freechips.rocketchip.rocket.MulDivParams
+import freechips.rocketchipRT.rocket.MulDivParams
 
 case class OMMulDiv(
   divideBitsPerCycle: Int,

@@ -1,16 +1,16 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.stage.phases
+package freechips.rocketchipRT.stage.phases
 
 import chisel3.RawModule
 import chisel3.stage.ChiselGeneratorAnnotation
 import firrtl.AnnotationSeq
 import firrtl.options.Viewer.view
 import firrtl.options.{Dependency, Phase, PreservesAll, StageOptions}
-import freechips.rocketchip.config.{Field, Parameters}
-import freechips.rocketchip.diplomacy._
-import freechips.rocketchip.stage.RocketChipOptions
-import freechips.rocketchip.util.HasRocketChipStageUtils
+import freechips.rocketchipRT.config.{Field, Parameters}
+import freechips.rocketchipRT.diplomacy._
+import freechips.rocketchipRT.stage.RocketChipOptions
+import freechips.rocketchipRT.util.HasRocketChipStageUtils
 
 case object TargetDirKey extends Field[String](".")
 

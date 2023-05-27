@@ -1,13 +1,13 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.diplomacy
+package freechips.rocketchipRT.diplomacy
 
 import Chisel._
 import chisel3.SyncReadMem
-import freechips.rocketchip.config.Parameters
-import freechips.rocketchip.diplomaticobjectmodel.DiplomaticObjectModelAddressing
-import freechips.rocketchip.diplomaticobjectmodel.model._
-import freechips.rocketchip.util.{DescribedSRAM, Code}
+import freechips.rocketchipRT.config.Parameters
+import freechips.rocketchipRT.diplomaticobjectmodel.DiplomaticObjectModelAddressing
+import freechips.rocketchipRT.diplomaticobjectmodel.model._
+import freechips.rocketchipRT.util.{DescribedSRAM, Code}
 
 abstract class DiplomaticSRAM(
     val address: AddressSet,

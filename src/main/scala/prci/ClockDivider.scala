@@ -1,11 +1,11 @@
 // See LICENSE.SiFive for license details.
-package freechips.rocketchip.prci
+package freechips.rocketchipRT.prci
 
 import chisel3._
 import chisel3.util.isPow2
-import freechips.rocketchip.config.Parameters
-import freechips.rocketchip.diplomacy._
-import freechips.rocketchip.util.{ClockDivider3, Pow2ClockDivider}
+import freechips.rocketchipRT.config.Parameters
+import freechips.rocketchipRT.diplomacy._
+import freechips.rocketchipRT.util.{ClockDivider3, Pow2ClockDivider}
 
 /* An example clock adapter that divides all clocks passed through this node by an integer factor
 */
@@ -23,7 +23,7 @@ class ClockDivider(div: Int)(implicit p: Parameters) extends LazyModule {
           div3.io.clk_in := in.clock
           div3.io.clk_out
         }
-        case x => throw new IllegalArgumentException(s"rocketchip.util only supports clock division by powers of 2, or exactly 3, but got $x")
+        case x => throw new IllegalArgumentException(s"rocketchipRT.util only supports clock division by powers of 2, or exactly 3, but got $x")
       }
       out.clock := div_clock
       out.reset := withClock(out.clock) { RegNext(in.reset) }

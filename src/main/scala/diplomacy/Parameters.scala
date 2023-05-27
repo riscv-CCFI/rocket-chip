@@ -1,10 +1,10 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.diplomacy
+package freechips.rocketchipRT.diplomacy
 
 import Chisel._
 import chisel3.util.ReadyValidIO
-import freechips.rocketchip.util.{ShiftQueue}
+import freechips.rocketchipRT.util.{ShiftQueue}
 
 /** Options for describing the attributes of memory regions */
 object RegionType {

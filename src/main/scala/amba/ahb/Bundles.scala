@@ -1,9 +1,9 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.amba.ahb
+package freechips.rocketchipRT.amba.ahb
 
 import Chisel._
-import freechips.rocketchip.util._
+import freechips.rocketchipRT.util._
 
 // Signal directions are from the master's point-of-view
 class AHBSlaveBundle(val params: AHBBundleParameters) extends Bundle

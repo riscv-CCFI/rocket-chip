@@ -1,10 +1,10 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.amba.axis
+package freechips.rocketchipRT.amba.axis
 
 import chisel3.internal.sourceinfo.SourceInfo
-import freechips.rocketchip.config.Parameters
-import freechips.rocketchip.diplomacy._
+import freechips.rocketchipRT.config.Parameters
+import freechips.rocketchipRT.diplomacy._
 
 object AXISImp extends SimpleNodeImp[AXISMasterPortParameters, AXISSlavePortParameters, AXISEdgeParameters, AXISBundle]
 {

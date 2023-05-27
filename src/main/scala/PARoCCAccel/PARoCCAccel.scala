@@ -1,9 +1,9 @@
 package PARoCCAccel
-// import freechips.rocketchip.config.{Config}
+// import freechips.rocketchipRT.config.{Config}
 import Chisel._
-import freechips.rocketchip.tile._ // import LazyRoCC
-import freechips.rocketchip.config._ // import Config object
-import freechips.rocketchip.diplomacy._ // import LazyModule
+import freechips.rocketchipRT.tile._ // import LazyRoCC
+import freechips.rocketchipRT.config._ // import Config object
+import freechips.rocketchipRT.diplomacy._ // import LazyModule
 import aes._
 class PA(val w : Int) extends Module{
     val io = IO(new Bundle{

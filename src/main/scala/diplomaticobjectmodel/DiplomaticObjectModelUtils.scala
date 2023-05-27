@@ -1,12 +1,12 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.diplomaticobjectmodel
+package freechips.rocketchipRT.diplomaticobjectmodel
 
 import java.io.{File, FileWriter}
 
 import Chisel.{Data, Vec, log2Ceil}
-import freechips.rocketchip.diplomacy.{ AddressSet, Binding, Device, DiplomacyUtils, ResourceAddress, ResourceBindings, ResourceInt, ResourceMapping, ResourcePermissions, ResourceValue, SimpleDevice}
-import freechips.rocketchip.diplomaticobjectmodel.model._
+import freechips.rocketchipRT.diplomacy.{ AddressSet, Binding, Device, DiplomacyUtils, ResourceAddress, ResourceBindings, ResourceInt, ResourceMapping, ResourcePermissions, ResourceValue, SimpleDevice}
+import freechips.rocketchipRT.diplomaticobjectmodel.model._
 import org.json4s.jackson.JsonMethods.pretty
 import org.json4s.jackson.Serialization
 import org.json4s.{CustomSerializer, Extraction, NoTypeHints}

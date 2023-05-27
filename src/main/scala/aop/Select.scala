@@ -1,10 +1,10 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.aop
+package freechips.rocketchipRT.aop
 
 import chisel3.Data
-import freechips.rocketchip.config.Parameters
-import freechips.rocketchip.diplomacy.{
+import freechips.rocketchipRT.config.Parameters
+import freechips.rocketchipRT.diplomacy.{
   AnyMixedNode,
   BaseNode,
   InwardNode,

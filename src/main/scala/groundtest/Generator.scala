@@ -1,8 +1,8 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.groundtest
+package freechips.rocketchipRT.groundtest
 
 import firrtl.options.StageMain
-import freechips.rocketchip.system.RocketChipStage
+import freechips.rocketchipRT.system.RocketChipStage
 
 object Generator extends StageMain(new RocketChipStage)

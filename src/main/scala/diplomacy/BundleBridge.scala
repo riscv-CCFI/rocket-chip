@@ -1,13 +1,13 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.diplomacy
+package freechips.rocketchipRT.diplomacy
 
 import chisel3._
 import chisel3.internal.sourceinfo.SourceInfo
 import chisel3.experimental.{DataMirror,IO}
 import chisel3.experimental.DataMirror.internal.chiselTypeClone
-import freechips.rocketchip.config.Parameters
-import freechips.rocketchip.util.DataToAugmentedData
+import freechips.rocketchipRT.config.Parameters
+import freechips.rocketchipRT.util.DataToAugmentedData
 
 case class BundleBridgeParams[T <: Data](genOpt: Option[() => T])
 

@@ -1,10 +1,10 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.diplomaticobjectmodel.model
+package freechips.rocketchipRT.diplomaticobjectmodel.model
 
 
-import freechips.rocketchip.tile.RocketTile
-import freechips.rocketchip.util.BooleanToAugmentedBoolean
+import freechips.rocketchipRT.tile.RocketTile
+import freechips.rocketchipRT.util.BooleanToAugmentedBoolean
 
 trait OMExtensionType extends OMEnum
 case object M extends OMExtensionType

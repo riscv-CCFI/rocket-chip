@@ -1,12 +1,12 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.subsystem
+package freechips.rocketchipRT.subsystem
 
 import Chisel._
-import freechips.rocketchip.config.{Field, Parameters}
-import freechips.rocketchip.diplomacy._
-import freechips.rocketchip.interrupts._
-import freechips.rocketchip.prci.{ClockSinkDomain}
+import freechips.rocketchipRT.config.{Field, Parameters}
+import freechips.rocketchipRT.diplomacy._
+import freechips.rocketchipRT.interrupts._
+import freechips.rocketchipRT.prci.{ClockSinkDomain}
 
 /** Collects interrupts from internal and external devices and feeds them into the PLIC */ 
 class InterruptBusWrapper(implicit p: Parameters) extends ClockSinkDomain {

@@ -1,10 +1,10 @@
 // See LICENSE.Berkeley for license details.
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.rocket
+package freechips.rocketchipRT.rocket
 
 import Chisel._
-import freechips.rocketchip.config.Parameters
+import freechips.rocketchipRT.config.Parameters
 
 class HellaCacheArbiter(n: Int)(implicit p: Parameters) extends Module
 {

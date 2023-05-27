@@ -1,11 +1,11 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.rocket
+package freechips.rocketchipRT.rocket
 
 import Chisel._
 
-import freechips.rocketchip.diplomacy._
-import freechips.rocketchip.tilelink._
+import freechips.rocketchipRT.diplomacy._
+import freechips.rocketchipRT.tilelink._
 
 case class TLBPermissions(
   homogeneous: Bool, // if false, the below are undefined

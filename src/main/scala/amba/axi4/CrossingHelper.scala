@@ -1,10 +1,10 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.amba.axi4
+package freechips.rocketchipRT.amba.axi4
 
-import freechips.rocketchip.config.Parameters
-import freechips.rocketchip.diplomacy._
-import freechips.rocketchip.prci.{ResetCrossingType, NoResetCrossing, StretchedResetCrossing}
+import freechips.rocketchipRT.config.Parameters
+import freechips.rocketchipRT.diplomacy._
+import freechips.rocketchipRT.prci.{ResetCrossingType, NoResetCrossing, StretchedResetCrossing}
 
 trait AXI4OutwardCrossingHelper {
   type HelperCrossingType <: CrossingType

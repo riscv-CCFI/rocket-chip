@@ -1,10 +1,10 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.diplomaticobjectmodel.model
+package freechips.rocketchipRT.diplomaticobjectmodel.model
 
 
-import freechips.rocketchip.config._
-import freechips.rocketchip.devices.debug.ExportDebug
+import freechips.rocketchipRT.config._
+import freechips.rocketchipRT.devices.debug.ExportDebug
 
 sealed trait OMDebugInterfaceType extends OMEnum
 case object JTAG extends OMDebugInterfaceType

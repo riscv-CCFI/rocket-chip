@@ -1,6 +1,6 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.util
+package freechips.rocketchipRT.util
 
 import chisel3._
 import chisel3.util._
@@ -69,7 +69,7 @@ object Scatter {
   def idLayer[T](layer: Int, data: Seq[T], holeSum: Seq[UInt]) = (data, holeSum)
 }
 
-import freechips.rocketchip.unittest._
+import freechips.rocketchipRT.unittest._
 
 class GatherTest(size: Int, timeout: Int = 500000) extends UnitTest(timeout) {
   val bits = log2Ceil(size+1)

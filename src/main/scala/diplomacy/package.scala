@@ -1,10 +1,10 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip
+package freechips.rocketchipRT
 
 import chisel3.internal.sourceinfo.{SourceInfo, SourceLine}
 import chisel3.Data
-import freechips.rocketchip.config.Parameters
+import freechips.rocketchipRT.config.Parameters
 import scala.language.implicitConversions
 
 
@@ -45,7 +45,7 @@ import scala.language.implicitConversions
   *    or opcode field.
   *    While they are derived from Edge parameters holding all metadata computed over an edge,
   *    Bundle parameters often contain only concrete information required to create the hardware type,
-  *    such as [[freechips.rocketchip.tilelink.TLBundleParameters]] and [[freechips.rocketchip.amba.axi4.AXI4BundleParameters]]
+  *    such as [[freechips.rocketchipRT.tilelink.TLBundleParameters]] and [[freechips.rocketchipRT.amba.axi4.AXI4BundleParameters]]
   *  
   * ==Inward/Outward vs. Upward/Downward==
   *

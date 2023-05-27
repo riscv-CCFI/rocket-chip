@@ -1,12 +1,12 @@
 // See LICENSE.Berkeley for license details.
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.util
+package freechips.rocketchipRT.util
 
 import chisel3._
 import chisel3.util._
 import chisel3.util.random.LFSR
-import freechips.rocketchip.util.property.cover
+import freechips.rocketchipRT.util.property.cover
 
 abstract class ReplacementPolicy {
   def nBits: Int
@@ -324,7 +324,7 @@ class SetAssocLRU(n_sets: Int, n_ways: Int, policy: String) extends SetAssocRepl
 }
 
 /** Synthesizeable unit tests */
-import freechips.rocketchip.unittest._
+import freechips.rocketchipRT.unittest._
 
 class PLRUTest(n_ways: Int, timeout: Int = 500) extends UnitTest(timeout) {
   val plru = new PseudoLRU(n_ways)

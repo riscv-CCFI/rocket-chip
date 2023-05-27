@@ -1,14 +1,14 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.stage.phases
+package freechips.rocketchipRT.stage.phases
 
 import chisel3.stage.ChiselCircuitAnnotation
 import chisel3.stage.phases.{Convert, Elaborate}
 import firrtl.AnnotationSeq
 import firrtl.options.{Dependency, Phase, PreservesAll, StageOptions}
 import firrtl.options.Viewer.view
-import freechips.rocketchip.stage.RocketChipOptions
-import freechips.rocketchip.util.HasRocketChipStageUtils
+import freechips.rocketchipRT.stage.RocketChipOptions
+import freechips.rocketchipRT.util.HasRocketChipStageUtils
 
 /** Dumps ROM information into a file */
 class GenerateROMs extends Phase with PreservesAll[Phase] with HasRocketChipStageUtils {

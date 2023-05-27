@@ -1,14 +1,14 @@
 // See LICENSE.SiFive for license details.
 // See LICENSE.Berkeley for license details.
 
-package freechips.rocketchip.groundtest
+package freechips.rocketchipRT.groundtest
 
 import Chisel._
 
-import freechips.rocketchip.config.Parameters
-import freechips.rocketchip.rocket._
-import freechips.rocketchip.tile.CoreModule
-import freechips.rocketchip.util.ParameterizedBundle
+import freechips.rocketchipRT.config.Parameters
+import freechips.rocketchipRT.rocket._
+import freechips.rocketchipRT.tile.CoreModule
+import freechips.rocketchipRT.util.ParameterizedBundle
 
 class DummyPTW(n: Int)(implicit p: Parameters) extends CoreModule()(p) {
   val io = new Bundle {

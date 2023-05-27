@@ -1,10 +1,10 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.tile
+package freechips.rocketchipRT.tile
 
 import chisel3._
 
-import freechips.rocketchip.config.Parameters
+import freechips.rocketchipRT.config.Parameters
 
 case class CustomCSR(id: Int, mask: BigInt, init: Option[BigInt])
 

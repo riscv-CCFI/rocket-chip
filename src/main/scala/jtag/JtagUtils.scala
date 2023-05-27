@@ -1,6 +1,6 @@
 // See LICENSE.jtag for license details.
 
-package freechips.rocketchip.jtag
+package freechips.rocketchipRT.jtag
 
 import chisel3._
 

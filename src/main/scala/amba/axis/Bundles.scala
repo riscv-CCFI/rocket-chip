@@ -1,9 +1,9 @@
 // See LICENSE.SiFive for license details.
-package freechips.rocketchip.amba.axis
+package freechips.rocketchipRT.amba.axis
 
 import chisel3._
 import chisel3.util._
-import freechips.rocketchip.util._
+import freechips.rocketchipRT.util._
 
 sealed trait AXISKey
 case object AXISLast extends ControlKey[Bool]("last") with AXISKey

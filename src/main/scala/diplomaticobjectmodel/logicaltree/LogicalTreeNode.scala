@@ -1,9 +1,9 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.diplomaticobjectmodel.logicaltree
+package freechips.rocketchipRT.diplomaticobjectmodel.logicaltree
 
-import freechips.rocketchip.diplomacy.{BindingScope, Device, ResourceBindings, ResourceBindingsMap, SimpleDevice}
-import freechips.rocketchip.diplomaticobjectmodel.model.OMComponent
+import freechips.rocketchipRT.diplomacy.{BindingScope, Device, ResourceBindings, ResourceBindingsMap, SimpleDevice}
+import freechips.rocketchipRT.diplomaticobjectmodel.model.OMComponent
 
 import scala.collection.mutable
 import scala.collection.mutable.ArrayBuffer

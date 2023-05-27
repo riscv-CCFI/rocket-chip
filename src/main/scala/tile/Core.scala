@@ -1,12 +1,12 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.tile
+package freechips.rocketchipRT.tile
 
 import Chisel._
 
-import freechips.rocketchip.config._
-import freechips.rocketchip.rocket._
-import freechips.rocketchip.util._
+import freechips.rocketchipRT.config._
+import freechips.rocketchipRT.rocket._
+import freechips.rocketchipRT.util._
 
 case object XLen extends Field[Int]
 case object MaxHartIdBits extends Field[Int]

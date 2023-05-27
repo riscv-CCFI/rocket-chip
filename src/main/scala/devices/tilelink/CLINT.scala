@@ -1,17 +1,17 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.devices.tilelink
+package freechips.rocketchipRT.devices.tilelink
 
 import Chisel._
-import freechips.rocketchip.config.{Field, Parameters}
-import freechips.rocketchip.diplomacy._
-import freechips.rocketchip.diplomaticobjectmodel.logicaltree._
-import freechips.rocketchip.diplomaticobjectmodel.model._
-import freechips.rocketchip.interrupts._
-import freechips.rocketchip.regmapper._
-import freechips.rocketchip.subsystem._
-import freechips.rocketchip.tilelink._
-import freechips.rocketchip.util._
+import freechips.rocketchipRT.config.{Field, Parameters}
+import freechips.rocketchipRT.diplomacy._
+import freechips.rocketchipRT.diplomaticobjectmodel.logicaltree._
+import freechips.rocketchipRT.diplomaticobjectmodel.model._
+import freechips.rocketchipRT.interrupts._
+import freechips.rocketchipRT.regmapper._
+import freechips.rocketchipRT.subsystem._
+import freechips.rocketchipRT.tilelink._
+import freechips.rocketchipRT.util._
 
 object CLINTConsts
 {

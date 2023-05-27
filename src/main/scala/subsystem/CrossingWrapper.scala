@@ -1,13 +1,13 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.subsystem
+package freechips.rocketchipRT.subsystem
 
-import freechips.rocketchip.config.Parameters
-import freechips.rocketchip.diplomacy._
-import freechips.rocketchip.tilelink._
-import freechips.rocketchip.amba.axi4._
-import freechips.rocketchip.interrupts._
-import freechips.rocketchip.prci.{HasResetDomainCrossing, ResetCrossingType}
+import freechips.rocketchipRT.config.Parameters
+import freechips.rocketchipRT.diplomacy._
+import freechips.rocketchipRT.tilelink._
+import freechips.rocketchipRT.amba.axi4._
+import freechips.rocketchipRT.interrupts._
+import freechips.rocketchipRT.prci.{HasResetDomainCrossing, ResetCrossingType}
 
 @deprecated("Only use this trait if you are confident you island will only ever be crossed to a single clock", "rocket-chip 1.3")
 trait HasCrossing extends CrossesToOnlyOneClockDomain { this: LazyModule => }

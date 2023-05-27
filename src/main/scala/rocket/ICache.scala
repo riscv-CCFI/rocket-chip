@@ -1,17 +1,17 @@
 // See LICENSE.Berkeley for license details.
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.rocket
+package freechips.rocketchipRT.rocket
 
 import Chisel._
 import Chisel.ImplicitConversions._
-import freechips.rocketchip.amba._
-import freechips.rocketchip.config.Parameters
-import freechips.rocketchip.diplomacy._
-import freechips.rocketchip.tile._
-import freechips.rocketchip.tilelink._
-import freechips.rocketchip.util.{DescribedSRAM, _}
-import freechips.rocketchip.util.property._
+import freechips.rocketchipRT.amba._
+import freechips.rocketchipRT.config.Parameters
+import freechips.rocketchipRT.diplomacy._
+import freechips.rocketchipRT.tile._
+import freechips.rocketchipRT.tilelink._
+import freechips.rocketchipRT.util.{DescribedSRAM, _}
+import freechips.rocketchipRT.util.property._
 import chisel3.internal.sourceinfo.SourceInfo
 import chisel3.dontTouch
 import chisel3.util.random.LFSR

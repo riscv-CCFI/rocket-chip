@@ -1,11 +1,11 @@
 // See LICENSE.SiFive for license details.
 // See LICENSE.Berkeley for license details.
 
-package freechips.rocketchip.rocket
+package freechips.rocketchipRT.rocket
 
 import Chisel._
-import freechips.rocketchip.config.Parameters
-import freechips.rocketchip.tile.CoreModule
+import freechips.rocketchipRT.config.Parameters
+import freechips.rocketchipRT.tile.CoreModule
 
 object ALU
 {

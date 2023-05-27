@@ -1,14 +1,14 @@
 // See LICENSE.jtag for license details.
 
-package freechips.rocketchip.jtag
+package freechips.rocketchipRT.jtag
 
 import chisel3._
 import chisel3.experimental.DataMirror
 import chisel3.internal.firrtl.KnownWidth
 import chisel3.util.{Cat, Valid}
 
-import freechips.rocketchip.config.Parameters
-import freechips.rocketchip.util.property
+import freechips.rocketchipRT.config.Parameters
+import freechips.rocketchipRT.util.property
 
 /** Base JTAG shifter IO, viewed from input to shift register chain.
   * Can be chained together.

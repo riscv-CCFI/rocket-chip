@@ -1,13 +1,13 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.devices.tilelink
+package freechips.rocketchipRT.devices.tilelink
 
 import Chisel._
-import freechips.rocketchip.config.{Field, Parameters}
-import freechips.rocketchip.subsystem.{BaseSubsystem, HierarchicalLocation, HasTiles, TLBusWrapperLocation}
-import freechips.rocketchip.diplomacy._
-import freechips.rocketchip.tilelink._
-import freechips.rocketchip.prci.{ClockSinkDomain}
+import freechips.rocketchipRT.config.{Field, Parameters}
+import freechips.rocketchipRT.subsystem.{BaseSubsystem, HierarchicalLocation, HasTiles, TLBusWrapperLocation}
+import freechips.rocketchipRT.diplomacy._
+import freechips.rocketchipRT.tilelink._
+import freechips.rocketchipRT.prci.{ClockSinkDomain}
 
 import java.nio.ByteBuffer
 import java.nio.file.{Files, Paths}

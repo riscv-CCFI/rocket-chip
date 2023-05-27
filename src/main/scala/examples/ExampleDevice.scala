@@ -1,15 +1,15 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.examples
+package freechips.rocketchipRT.examples
 
 import chisel3._
-import freechips.rocketchip.config.Parameters
-import freechips.rocketchip.amba.ahb.HasAHBControlRegMap
-import freechips.rocketchip.amba.axi4.HasAXI4ControlRegMap
-import freechips.rocketchip.diplomacy.LazyModuleImp
-import freechips.rocketchip.interrupts.HasInterruptSources
-import freechips.rocketchip.tilelink.HasTLControlRegMap
-import freechips.rocketchip.regmapper.{IORegisterRouter, RegisterRouterParams, RegField, RegFieldDesc}
+import freechips.rocketchipRT.config.Parameters
+import freechips.rocketchipRT.amba.ahb.HasAHBControlRegMap
+import freechips.rocketchipRT.amba.axi4.HasAXI4ControlRegMap
+import freechips.rocketchipRT.diplomacy.LazyModuleImp
+import freechips.rocketchipRT.interrupts.HasInterruptSources
+import freechips.rocketchipRT.tilelink.HasTLControlRegMap
+import freechips.rocketchipRT.regmapper.{IORegisterRouter, RegisterRouterParams, RegField, RegFieldDesc}
 
 case class ExampleDeviceParams(num: Int, address: BigInt)
 

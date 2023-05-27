@@ -1,8 +1,8 @@
-package freechips.rocketchip.prci
+package freechips.rocketchipRT.prci
 
 import chisel3._
-import freechips.rocketchip.config.Parameters
-import freechips.rocketchip.diplomacy._
+import freechips.rocketchipRT.config.Parameters
+import freechips.rocketchipRT.diplomacy._
 
 abstract class Domain(implicit p: Parameters) extends LazyModule with HasDomainCrossing {
   def clockBundle: ClockBundle

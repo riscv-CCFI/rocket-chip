@@ -1,8 +1,8 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.diplomaticobjectmodel.model
+package freechips.rocketchipRT.diplomaticobjectmodel.model
 
-import freechips.rocketchip.regmapper._
+import freechips.rocketchipRT.regmapper._
 
 trait OMRange extends OMCompoundType {
   def base: BigInt

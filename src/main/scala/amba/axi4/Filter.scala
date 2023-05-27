@@ -1,9 +1,9 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.amba.axi4
+package freechips.rocketchipRT.amba.axi4
 
-import freechips.rocketchip.config._
-import freechips.rocketchip.diplomacy._
+import freechips.rocketchipRT.config._
+import freechips.rocketchipRT.diplomacy._
 
 class AXI4Filter(
   Sfilter: AXI4SlaveParameters  => Option[AXI4SlaveParameters]   = AXI4Filter.Sidentity,

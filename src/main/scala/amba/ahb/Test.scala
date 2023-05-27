@@ -1,14 +1,14 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.amba.ahb
+package freechips.rocketchipRT.amba.ahb
 
 import chisel3._
-import freechips.rocketchip.config.Parameters
-import freechips.rocketchip.devices.tilelink.TLTestRAM
-import freechips.rocketchip.diplomacy._
-import freechips.rocketchip.regmapper.{RRTest0, RRTest1}
-import freechips.rocketchip.tilelink._
-import freechips.rocketchip.unittest._
+import freechips.rocketchipRT.config.Parameters
+import freechips.rocketchipRT.devices.tilelink.TLTestRAM
+import freechips.rocketchipRT.diplomacy._
+import freechips.rocketchipRT.regmapper.{RRTest0, RRTest1}
+import freechips.rocketchipRT.tilelink._
+import freechips.rocketchipRT.unittest._
 
 class AHBRRTest0(address: BigInt)(implicit p: Parameters)
   extends RRTest0(address)

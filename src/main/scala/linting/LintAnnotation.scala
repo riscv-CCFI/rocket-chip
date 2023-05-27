@@ -1,6 +1,6 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.linting
+package freechips.rocketchipRT.linting
 
 import firrtl.ir.{Info, FileInfo}
 import firrtl.annotations.NoTargetAnnotation

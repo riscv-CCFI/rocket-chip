@@ -1,9 +1,9 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.amba.apb
+package freechips.rocketchipRT.amba.apb
 
 import Chisel._
-import freechips.rocketchip.util._
+import freechips.rocketchipRT.util._
 
 // Signal directions are from the master's point-of-view
 class APBBundle(val params: APBBundleParameters) extends Bundle

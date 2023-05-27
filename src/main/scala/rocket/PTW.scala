@@ -1,20 +1,20 @@
 // See LICENSE.Berkeley for license details.
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.rocket
+package freechips.rocketchipRT.rocket
 
 import Chisel._
 import Chisel.ImplicitConversions._
 import chisel3.withClock
 import chisel3.internal.sourceinfo.SourceInfo
 import chisel3.experimental.chiselName
-import freechips.rocketchip.config.Parameters
-import freechips.rocketchip.subsystem.CacheBlockBytes
-import freechips.rocketchip.tile._
-import freechips.rocketchip.tilelink._
-import freechips.rocketchip.util._
-import freechips.rocketchip.util.property._
-import freechips.rocketchip.diplomaticobjectmodel.model.OMSRAM
+import freechips.rocketchipRT.config.Parameters
+import freechips.rocketchipRT.subsystem.CacheBlockBytes
+import freechips.rocketchipRT.tile._
+import freechips.rocketchipRT.tilelink._
+import freechips.rocketchipRT.util._
+import freechips.rocketchipRT.util.property._
+import freechips.rocketchipRT.diplomaticobjectmodel.model.OMSRAM
 import scala.collection.mutable.ListBuffer
 
 class PTWReq(implicit p: Parameters) extends CoreBundle()(p) {

@@ -1,12 +1,12 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.regmapper
+package freechips.rocketchipRT.regmapper
 
 import Chisel._
 
-import freechips.rocketchip.diplomacy._
-import freechips.rocketchip.util._
-import freechips.rocketchip.util.property._
+import freechips.rocketchipRT.diplomacy._
+import freechips.rocketchipRT.util._
+import freechips.rocketchipRT.util.property._
 import chisel3.internal.sourceinfo.SourceInfo
 
 // A bus agnostic register interface to a register-based device

@@ -1,15 +1,15 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.devices.tilelink
+package freechips.rocketchipRT.devices.tilelink
 
 import Chisel._
-import freechips.rocketchip.config.Parameters
-import freechips.rocketchip.diplomacy._
-import freechips.rocketchip.tilelink.TLMessages
+import freechips.rocketchipRT.config.Parameters
+import freechips.rocketchipRT.diplomacy._
+import freechips.rocketchipRT.tilelink.TLMessages
 
-import freechips.rocketchip.diplomaticobjectmodel.{DiplomaticObjectModelAddressing, HasLogicalTreeNode}
-import freechips.rocketchip.diplomaticobjectmodel.logicaltree.LogicalTreeNode
-import freechips.rocketchip.diplomaticobjectmodel.model.{OMZeroDevice, OMComponent}
+import freechips.rocketchipRT.diplomaticobjectmodel.{DiplomaticObjectModelAddressing, HasLogicalTreeNode}
+import freechips.rocketchipRT.diplomaticobjectmodel.logicaltree.LogicalTreeNode
+import freechips.rocketchipRT.diplomaticobjectmodel.model.{OMZeroDevice, OMComponent}
 
 /** This /dev/null device accepts single beat gets/puts, as well as atomics.
   * Response data is always 0. Reequests to write data have no effect.

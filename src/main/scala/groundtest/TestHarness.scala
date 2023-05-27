@@ -1,11 +1,11 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.groundtest
+package freechips.rocketchipRT.groundtest
 
 import Chisel._
-import freechips.rocketchip.config.Parameters
-import freechips.rocketchip.diplomacy.LazyModule
-import freechips.rocketchip.system.SimAXIMem
+import freechips.rocketchipRT.config.Parameters
+import freechips.rocketchipRT.diplomacy.LazyModule
+import freechips.rocketchipRT.system.SimAXIMem
 
 class TestHarness(implicit p: Parameters) extends Module {
   val io = new Bundle { val success = Bool(OUTPUT) }

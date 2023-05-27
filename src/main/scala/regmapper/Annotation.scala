@@ -1,6 +1,6 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.regmapper
+package freechips.rocketchipRT.regmapper
 
 
 case class RegFieldDescSer(

@@ -1,9 +1,9 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.diplomacy
-import freechips.rocketchip.util.{RationalDirection, FastToSlow, AsyncQueueParams, CreditedDelay}
+package freechips.rocketchipRT.diplomacy
+import freechips.rocketchipRT.util.{RationalDirection, FastToSlow, AsyncQueueParams, CreditedDelay}
 
-// TODO this should all be moved to package freechips.rocketchip.prci now that it exists
+// TODO this should all be moved to package freechips.rocketchipRT.prci now that it exists
 
 trait CrossingType
 

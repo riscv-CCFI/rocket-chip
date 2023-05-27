@@ -1,9 +1,9 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.util
+package freechips.rocketchipRT.util
 
 import Chisel.{defaultCompileOptions => _, _}
-import freechips.rocketchip.util.CompileOptions.NotStrictInferReset
+import freechips.rocketchipRT.util.CompileOptions.NotStrictInferReset
 
 import chisel3.{withClockAndReset, withReset, RawModule}
 

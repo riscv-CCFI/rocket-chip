@@ -1,12 +1,12 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.tilelink
+package freechips.rocketchipRT.tilelink
 
 import chisel3._
 import chisel3.util._
 import chisel3.util.random.LFSR
-import freechips.rocketchip.config.Parameters
-import freechips.rocketchip.util._
+import freechips.rocketchipRT.config.Parameters
+import freechips.rocketchipRT.util._
 
 object TLArbiter
 {
@@ -130,7 +130,7 @@ object TLArbiter
 }
 
 /** Synthesizeable unit tests */
-import freechips.rocketchip.unittest._
+import freechips.rocketchipRT.unittest._
 
 abstract class DecoupledArbiterTest(
     policy: TLArbiter.Policy,

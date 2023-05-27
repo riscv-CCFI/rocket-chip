@@ -1,13 +1,13 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.amba.axi4
+package freechips.rocketchipRT.amba.axi4
 
 import Chisel._
-import freechips.rocketchip.config.Parameters
-import freechips.rocketchip.diplomacy._
-import freechips.rocketchip.regmapper._
-import freechips.rocketchip.interrupts.{IntSourceNode, IntSourcePortSimple}
-import freechips.rocketchip.util._
+import freechips.rocketchipRT.config.Parameters
+import freechips.rocketchipRT.diplomacy._
+import freechips.rocketchipRT.regmapper._
+import freechips.rocketchipRT.interrupts.{IntSourceNode, IntSourcePortSimple}
+import freechips.rocketchipRT.util._
 
 case object AXI4RRId extends ControlKey[UInt]("extra_id")
 case class AXI4RRIdField(width: Int) extends SimpleBundleField(AXI4RRId)(UInt(OUTPUT, width = 1 max width), UInt(0))

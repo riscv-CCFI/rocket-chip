@@ -1,19 +1,19 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.stage.phases
+package freechips.rocketchipRT.stage.phases
 
 
-import chipsalliance.rocketchip.config.Parameters
+import chipsalliance.rocketchipRT.config.Parameters
 import firrtl.AnnotationSeq
 import firrtl.annotations.NoTargetAnnotation
 import firrtl.options.{Dependency, Phase, PreservesAll, Unserializable}
 import firrtl.options.Viewer.view
-import freechips.rocketchip.stage.RocketChipOptions
-import freechips.rocketchip.subsystem.RocketTilesKey
-import freechips.rocketchip.system.{DefaultTestSuites, RegressionTestSuite, RocketTestSuite}
-import freechips.rocketchip.tile.XLen
-import freechips.rocketchip.util.HasRocketChipStageUtils
-import freechips.rocketchip.system.DefaultTestSuites._
+import freechips.rocketchipRT.stage.RocketChipOptions
+import freechips.rocketchipRT.subsystem.RocketTilesKey
+import freechips.rocketchipRT.system.{DefaultTestSuites, RegressionTestSuite, RocketTestSuite}
+import freechips.rocketchipRT.tile.XLen
+import freechips.rocketchipRT.util.HasRocketChipStageUtils
+import freechips.rocketchipRT.system.DefaultTestSuites._
 
 import scala.collection.mutable
 
@@ -21,11 +21,11 @@ import scala.collection.mutable
 case class RocketTestSuiteAnnotation(tests: Seq[RocketTestSuite]) extends NoTargetAnnotation with Unserializable
 
 /** Generates [[RocketTestSuiteAnnotation]] depending on whether the top-module project is part of
- *  [[freechips.rocketchip.system]] or not (e.g. for unit tests).
+ *  [[freechips.rocketchipRT.system]] or not (e.g. for unit tests).
  */
 class AddDefaultTests extends Phase with PreservesAll[Phase] with HasRocketChipStageUtils {
 
-  override val prerequisites = Seq(Dependency[freechips.rocketchip.system.RocketChiselStage])
+  override val prerequisites = Seq(Dependency[freechips.rocketchipRT.system.RocketChiselStage])
   override val dependents = Seq(Dependency[GenerateTestSuiteMakefrags])
 
   def GenerateDefaultTestSuites(): List[RocketTestSuite] = {
@@ -129,7 +129,7 @@ class AddDefaultTests extends Phase with PreservesAll[Phase] with HasRocketChipS
   override def transform(annotations: AnnotationSeq): AnnotationSeq = {
     val ropts = view[RocketChipOptions](annotations)
     val tests = ropts.topPackage.get match {
-      case "freechips.rocketchip.system" => GenerateSystemTestSuites(annotations)
+      case "freechips.rocketchipRT.system" => GenerateSystemTestSuites(annotations)
       case _ => GenerateDefaultTestSuites()
     }
 

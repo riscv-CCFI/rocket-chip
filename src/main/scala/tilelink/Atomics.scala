@@ -1,9 +1,9 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.tilelink
+package freechips.rocketchipRT.tilelink
 
 import Chisel.{defaultCompileOptions => _, _}
-import freechips.rocketchip.util.CompileOptions.NotStrictInferReset
+import freechips.rocketchipRT.util.CompileOptions.NotStrictInferReset
 
 
 class Atomics(params: TLBundleParameters) extends Module

@@ -1,12 +1,12 @@
 // See LICENSE.Berkeley for license details.
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.util
+package freechips.rocketchipRT.util
 
 import chisel3.{Data, SyncReadMem, Vec}
 import chisel3.util.log2Ceil
-import freechips.rocketchip.diplomaticobjectmodel.DiplomaticObjectModelAddressing
-import freechips.rocketchip.diplomaticobjectmodel.model.{OMSRAM, OMRTLModule}
+import freechips.rocketchipRT.diplomaticobjectmodel.DiplomaticObjectModelAddressing
+import freechips.rocketchipRT.diplomaticobjectmodel.model.{OMSRAM, OMRTLModule}
 
 object DescribedSRAM {
   def apply[T <: Data](

@@ -1,9 +1,9 @@
 // See LICENSE.Berkeley for license details.
 
-package freechips.rocketchip.util
+package freechips.rocketchipRT.util
 
 import Chisel._
-import freechips.rocketchip.unittest.UnitTest
+import freechips.rocketchipRT.unittest.UnitTest
 
 class MultiWidthFifo(inW: Int, outW: Int, n: Int) extends Module {
   val io = new Bundle {

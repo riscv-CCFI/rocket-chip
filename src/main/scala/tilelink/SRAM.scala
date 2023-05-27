@@ -1,15 +1,15 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.tilelink
+package freechips.rocketchipRT.tilelink
 
 import chisel3._
 import chisel3.util._
-import freechips.rocketchip.config.Parameters
-import freechips.rocketchip.diplomacy._
-import freechips.rocketchip.diplomaticobjectmodel.logicaltree.{BusMemoryLogicalTreeNode, LogicalModuleTree, LogicalTreeNode}
-import freechips.rocketchip.diplomaticobjectmodel.model.{OMECC, TL_UL}
-import freechips.rocketchip.util._
-import freechips.rocketchip.util.property
+import freechips.rocketchipRT.config.Parameters
+import freechips.rocketchipRT.diplomacy._
+import freechips.rocketchipRT.diplomaticobjectmodel.logicaltree.{BusMemoryLogicalTreeNode, LogicalModuleTree, LogicalTreeNode}
+import freechips.rocketchipRT.diplomaticobjectmodel.model.{OMECC, TL_UL}
+import freechips.rocketchipRT.util._
+import freechips.rocketchipRT.util.property
 
 class TLRAMErrors(val params: ECCParams, val addrBits: Int) extends Bundle with CanHaveErrors {
   val correctable   = (params.code.canCorrect && params.notifyErrors).option(Valid(UInt(addrBits.W)))
@@ -348,7 +348,7 @@ object TLRAM
 }
 
 /** Synthesizeable unit testing */
-import freechips.rocketchip.unittest._
+import freechips.rocketchipRT.unittest._
 
 class TLRAMSimple(ramBeatBytes: Int, sramReg: Boolean, txns: Int)(implicit p: Parameters) extends LazyModule {
   val fuzz = LazyModule(new TLFuzzer(txns))

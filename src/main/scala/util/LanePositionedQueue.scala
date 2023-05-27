@@ -1,6 +1,6 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.util
+package freechips.rocketchipRT.util
 
 import chisel3._
 import chisel3.util._
@@ -509,8 +509,8 @@ case class OnePortLanePositionedQueue(ecc: Code) extends LanePositionedQueue {
 
 /////////////////////////////// Black Box Unit Testing /////////////////////////////
 
-import freechips.rocketchip.unittest._
-import freechips.rocketchip.tilelink.LFSR64
+import freechips.rocketchipRT.unittest._
+import freechips.rocketchipRT.tilelink.LFSR64
 
 class PositionedQueueTest(queueFactory: LanePositionedQueue, lanes: Int, rows: Int, rewind: Boolean, abort: Boolean, cycles: Int, timeout: Int = 500000) extends UnitTest(timeout) {
   val ids = (cycles+1) * lanes

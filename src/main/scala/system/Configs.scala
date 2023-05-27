@@ -1,15 +1,15 @@
 // See LICENSE.SiFive for license details.
 // See LICENSE.Berkeley for license details.
 
-package freechips.rocketchip.system
+package freechips.rocketchipRT.system
 
-import freechips.rocketchip.config.Config
-import freechips.rocketchip.subsystem._
-import freechips.rocketchip.groundtest.WithTraceGen
+import freechips.rocketchipRT.config.Config
+import freechips.rocketchipRT.subsystem._
+import freechips.rocketchipRT.groundtest.WithTraceGen
 
-class WithJtagDTMSystem extends freechips.rocketchip.subsystem.WithJtagDTM
-class WithDebugSBASystem extends freechips.rocketchip.subsystem.WithDebugSBA
-class WithDebugAPB extends freechips.rocketchip.subsystem.WithDebugAPB
+class WithJtagDTMSystem extends freechips.rocketchipRT.subsystem.WithJtagDTM
+class WithDebugSBASystem extends freechips.rocketchipRT.subsystem.WithDebugSBA
+class WithDebugAPB extends freechips.rocketchipRT.subsystem.WithDebugAPB
 
 class BaseConfig extends Config(
   new WithDefaultMemPort() ++

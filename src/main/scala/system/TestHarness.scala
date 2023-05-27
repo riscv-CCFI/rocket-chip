@@ -1,12 +1,12 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.system
+package freechips.rocketchipRT.system
 
 import chisel3._
-import freechips.rocketchip.config.Parameters
-import freechips.rocketchip.devices.debug.Debug
-import freechips.rocketchip.diplomacy.LazyModule
-import freechips.rocketchip.util.AsyncResetReg
+import freechips.rocketchipRT.config.Parameters
+import freechips.rocketchipRT.devices.debug.Debug
+import freechips.rocketchipRT.diplomacy.LazyModule
+import freechips.rocketchipRT.util.AsyncResetReg
 
 class TestHarness()(implicit p: Parameters) extends Module {
   val io = IO(new Bundle {

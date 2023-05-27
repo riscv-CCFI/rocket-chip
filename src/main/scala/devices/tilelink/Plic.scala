@@ -1,21 +1,21 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.devices.tilelink
+package freechips.rocketchipRT.devices.tilelink
 
 import Chisel.{defaultCompileOptions => _, _}
-import freechips.rocketchip.util.CompileOptions.NotStrictInferReset
+import freechips.rocketchipRT.util.CompileOptions.NotStrictInferReset
 import Chisel.ImplicitConversions._
-import freechips.rocketchip.config.{Field, Parameters}
-import freechips.rocketchip.subsystem._
-import freechips.rocketchip.diplomacy._
-import freechips.rocketchip.regmapper._
-import freechips.rocketchip.tilelink._
-import freechips.rocketchip.interrupts._
-import freechips.rocketchip.util._
-import freechips.rocketchip.util.property._
-import freechips.rocketchip.prci.{ClockSinkDomain}
+import freechips.rocketchipRT.config.{Field, Parameters}
+import freechips.rocketchipRT.subsystem._
+import freechips.rocketchipRT.diplomacy._
+import freechips.rocketchipRT.regmapper._
+import freechips.rocketchipRT.tilelink._
+import freechips.rocketchipRT.interrupts._
+import freechips.rocketchipRT.util._
+import freechips.rocketchipRT.util.property._
+import freechips.rocketchipRT.prci.{ClockSinkDomain}
 import chisel3.internal.sourceinfo.SourceInfo
-import freechips.rocketchip.diplomaticobjectmodel.model._
+import freechips.rocketchipRT.diplomaticobjectmodel.model._
 
 import scala.math.min
 

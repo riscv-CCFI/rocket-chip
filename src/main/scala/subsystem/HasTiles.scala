@@ -1,19 +1,19 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.subsystem
+package freechips.rocketchipRT.subsystem
 
 import Chisel._
 import chisel3.dontTouch
-import freechips.rocketchip.config.{Field, Parameters}
-import freechips.rocketchip.devices.debug.{HasPeripheryDebug, HasPeripheryDebugModuleImp}
-import freechips.rocketchip.devices.tilelink.{BasicBusBlocker, BasicBusBlockerParams, CLINTConsts, PLICKey, CanHavePeripheryPLIC, CanHavePeripheryCLINT}
-import freechips.rocketchip.diplomacy._
-import freechips.rocketchip.diplomaticobjectmodel.logicaltree.{LogicalModuleTree}
-import freechips.rocketchip.interrupts._
-import freechips.rocketchip.tile.{BaseTile, LookupByHartIdImpl, TileParams, InstantiableTileParams, MaxHartIdBits, TilePRCIDomain, NMI}
-import freechips.rocketchip.tilelink._
-import freechips.rocketchip.prci.{ClockGroup, ResetCrossingType}
-import freechips.rocketchip.util._
+import freechips.rocketchipRT.config.{Field, Parameters}
+import freechips.rocketchipRT.devices.debug.{HasPeripheryDebug, HasPeripheryDebugModuleImp}
+import freechips.rocketchipRT.devices.tilelink.{BasicBusBlocker, BasicBusBlockerParams, CLINTConsts, PLICKey, CanHavePeripheryPLIC, CanHavePeripheryCLINT}
+import freechips.rocketchipRT.diplomacy._
+import freechips.rocketchipRT.diplomaticobjectmodel.logicaltree.{LogicalModuleTree}
+import freechips.rocketchipRT.interrupts._
+import freechips.rocketchipRT.tile.{BaseTile, LookupByHartIdImpl, TileParams, InstantiableTileParams, MaxHartIdBits, TilePRCIDomain, NMI}
+import freechips.rocketchipRT.tilelink._
+import freechips.rocketchipRT.prci.{ClockGroup, ResetCrossingType}
+import freechips.rocketchipRT.util._
 
 /** Entry point for Config-uring the presence of Tiles */
 case class TilesLocated(loc: HierarchicalLocation) extends Field[Seq[CanAttachTile]](Nil)
@@ -22,7 +22,7 @@ case class TilesLocated(loc: HierarchicalLocation) extends Field[Seq[CanAttachTi
   * as it propagates through the subsystem and into the tile.
   *
   * These are typically only desirable when a dynamically programmable prefix is being combined
-  * with the static hart id via [[freechips.rocketchip.subsystem.HasTiles.tileHartIdNexusNode]].
+  * with the static hart id via [[freechips.rocketchipRT.subsystem.HasTiles.tileHartIdNexusNode]].
   */
 case object InsertTimingClosureRegistersOnHartIds extends Field[Boolean](false)
 

@@ -1,8 +1,8 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.amba
+package freechips.rocketchipRT.amba
 
-import freechips.rocketchip.diplomacy._
+import freechips.rocketchipRT.diplomacy._
 
 package object ahb
 {

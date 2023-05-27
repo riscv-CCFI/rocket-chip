@@ -1,14 +1,14 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.subsystem
+package freechips.rocketchipRT.subsystem
 
 import chisel3.util.isPow2
-import freechips.rocketchip.config._
-import freechips.rocketchip.devices.tilelink.BuiltInDevices
-import freechips.rocketchip.diplomacy._
-import freechips.rocketchip.interrupts._
-import freechips.rocketchip.tilelink._
-import freechips.rocketchip.util._
+import freechips.rocketchipRT.config._
+import freechips.rocketchipRT.devices.tilelink.BuiltInDevices
+import freechips.rocketchipRT.diplomacy._
+import freechips.rocketchipRT.interrupts._
+import freechips.rocketchipRT.tilelink._
+import freechips.rocketchipRT.util._
 import CoherenceManagerWrapper._
 
 /** Global cache coherence granularity, which applies to all caches, for now. */

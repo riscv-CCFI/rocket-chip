@@ -1,9 +1,9 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.diplomaticobjectmodel
+package freechips.rocketchipRT.diplomaticobjectmodel
 
 
-import freechips.rocketchip.diplomaticobjectmodel.logicaltree._
+import freechips.rocketchipRT.diplomaticobjectmodel.logicaltree._
 
 trait HasLogicalTreeNode {
   def logicalTreeNode: LogicalTreeNode

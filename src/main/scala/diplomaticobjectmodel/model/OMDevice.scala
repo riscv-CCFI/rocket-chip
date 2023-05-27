@@ -1,6 +1,6 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.diplomaticobjectmodel.model
+package freechips.rocketchipRT.diplomaticobjectmodel.model
 
 trait OMDevice extends OMComponent {
   def memoryRegions: Seq[OMMemoryRegion]

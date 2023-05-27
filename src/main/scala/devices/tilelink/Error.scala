@@ -1,15 +1,15 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.devices.tilelink
+package freechips.rocketchipRT.devices.tilelink
 
 import Chisel._
-import freechips.rocketchip.config.Parameters
-import freechips.rocketchip.diplomacy._
-import freechips.rocketchip.tilelink._
+import freechips.rocketchipRT.config.Parameters
+import freechips.rocketchipRT.diplomacy._
+import freechips.rocketchipRT.tilelink._
 
-import freechips.rocketchip.diplomaticobjectmodel.{DiplomaticObjectModelAddressing, HasLogicalTreeNode}
-import freechips.rocketchip.diplomaticobjectmodel.logicaltree.LogicalTreeNode
-import freechips.rocketchip.diplomaticobjectmodel.model.{OMErrorDevice, OMComponent}
+import freechips.rocketchipRT.diplomaticobjectmodel.{DiplomaticObjectModelAddressing, HasLogicalTreeNode}
+import freechips.rocketchipRT.diplomaticobjectmodel.logicaltree.LogicalTreeNode
+import freechips.rocketchipRT.diplomaticobjectmodel.model.{OMErrorDevice, OMComponent}
 
 /** Adds a /dev/null slave that generates TL error response messages */
 class TLError(params: DevNullParams, buffer: Boolean = true, beatBytes: Int = 4)(implicit p: Parameters)

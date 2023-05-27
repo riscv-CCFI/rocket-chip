@@ -1,11 +1,11 @@
 // See LICENSE.SiFive for license details.
 // See LICENSE.Berkeley for license details.
 
-package freechips.rocketchip.tilelink
+package freechips.rocketchipRT.tilelink
 
 import Chisel._
-import freechips.rocketchip.rocket.constants.MemoryOpConstants
-import freechips.rocketchip.util._
+import freechips.rocketchipRT.rocket.constants.MemoryOpConstants
+import freechips.rocketchipRT.util._
 
 object ClientStates {
   val width = 2

@@ -1,11 +1,11 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.tilelink
+package freechips.rocketchipRT.tilelink
 
 import chisel3._
 import chisel3.util._
-import freechips.rocketchip.config._
-import freechips.rocketchip.diplomacy._
+import freechips.rocketchipRT.config._
+import freechips.rocketchipRT.diplomacy._
 
 class AddressAdjuster(
     val params: ReplicatedRegion, // only devices in this region get adjusted

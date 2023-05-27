@@ -1,16 +1,16 @@
 // See LICENSE.SiFive for license details.
 // See LICENSE.Berkeley for license details.
 
-package freechips.rocketchip.subsystem
+package freechips.rocketchipRT.subsystem
 
 import Chisel._
-import freechips.rocketchip.config._
-import freechips.rocketchip.devices.debug._
-import freechips.rocketchip.devices.tilelink._
-import freechips.rocketchip.diplomacy._
-import freechips.rocketchip.rocket._
-import freechips.rocketchip.tile._
-import freechips.rocketchip.util._
+import freechips.rocketchipRT.config._
+import freechips.rocketchipRT.devices.debug._
+import freechips.rocketchipRT.devices.tilelink._
+import freechips.rocketchipRT.diplomacy._
+import freechips.rocketchipRT.rocket._
+import freechips.rocketchipRT.tile._
+import freechips.rocketchipRT.util._
 import PARoCCAccel._
 
 class BaseSubsystemConfig extends Config ((site, here, up) => {

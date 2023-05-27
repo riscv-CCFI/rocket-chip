@@ -1,7 +1,7 @@
 // See LICENSE.Berkeley for license details.
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.system
+package freechips.rocketchipRT.system
 
 import scala.collection.mutable.LinkedHashSet
 
@@ -61,7 +61,7 @@ object TestGeneration {
   
   def addSuites(s: Seq[RocketTestSuite]): Unit = { s.foreach(addSuite) }
 
-  private[rocketchip] def gen(kind: String, s: Seq[RocketTestSuite]) = {
+  private[rocketchipRT] def gen(kind: String, s: Seq[RocketTestSuite]) = {
     if(s.length > 0) {
       val envs = s.groupBy(_.envName)
       val targets = s.map(t => s"$$(${t.makeTargetName})").mkString(" ")

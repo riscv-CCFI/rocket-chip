@@ -1,19 +1,19 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.diplomacy
+package freechips.rocketchipRT.diplomacy
 
 import Chisel.{defaultCompileOptions => _, _}
 import chisel3.internal.sourceinfo.{SourceInfo, UnlocatableSourceInfo}
 import chisel3.{Module, RawModule, Reset, withClockAndReset}
 import chisel3.experimental.{ChiselAnnotation, CloneModuleAsRecord}
 import firrtl.passes.InlineAnnotation
-import freechips.rocketchip.config.Parameters
-import freechips.rocketchip.util.CompileOptions.NotStrictInferReset
+import freechips.rocketchipRT.config.Parameters
+import freechips.rocketchipRT.util.CompileOptions.NotStrictInferReset
 
 import scala.collection.immutable.{ListMap, SortedMap}
 import scala.util.matching._
 
-/** While the [[freechips.rocketchip.diplomacy]] package allows fairly abstract parameter negotiation while constructing a DAG,
+/** While the [[freechips.rocketchipRT.diplomacy]] package allows fairly abstract parameter negotiation while constructing a DAG,
   * [[LazyModule]] builds on top of the DAG annotated with the negotiated parameters and leverage's Scala's lazy evaluation property to split Chisel module generation into two phases:
   *
   *   - Phase 1 (diplomatic) states parameters, hierarchy, and connections:

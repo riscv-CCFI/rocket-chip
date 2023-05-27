@@ -1,6 +1,6 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip
+package freechips.rocketchipRT
 
 import Chisel._
 import scala.math.min

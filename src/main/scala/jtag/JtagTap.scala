@@ -1,11 +1,11 @@
 // See LICENSE.jtag for license details.
 
-package freechips.rocketchip.jtag
+package freechips.rocketchipRT.jtag
 
 import scala.collection.SortedMap
 
 import chisel3._
-import freechips.rocketchip.config.Parameters
+import freechips.rocketchipRT.config.Parameters
 
 /** JTAG signals, viewed from the master side
   */

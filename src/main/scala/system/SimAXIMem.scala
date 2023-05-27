@@ -1,13 +1,13 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.system // TODO this should really be in a testharness package
+package freechips.rocketchipRT.system // TODO this should really be in a testharness package
 
 import chisel3._
-import freechips.rocketchip.amba._
-import freechips.rocketchip.amba.axi4._
-import freechips.rocketchip.config.Parameters
-import freechips.rocketchip.diplomacy._
-import freechips.rocketchip.subsystem.{CanHaveMasterAXI4MMIOPort, CanHaveMasterAXI4MemPort, ExtBus, ExtMem}
+import freechips.rocketchipRT.amba._
+import freechips.rocketchipRT.amba.axi4._
+import freechips.rocketchipRT.config.Parameters
+import freechips.rocketchipRT.diplomacy._
+import freechips.rocketchipRT.subsystem.{CanHaveMasterAXI4MMIOPort, CanHaveMasterAXI4MemPort, ExtBus, ExtMem}
 
 /** Memory with AXI port for use in elaboratable test harnesses. */
 class SimAXIMem(edge: AXI4EdgeParameters, size: BigInt, base: BigInt = 0)(implicit p: Parameters) extends SimpleLazyModule {

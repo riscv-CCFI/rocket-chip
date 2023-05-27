@@ -1,6 +1,6 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.aspects
+package freechips.rocketchipRT.aspects
 
 import chisel3.aop.Aspect
 import chisel3.RawModule
@@ -8,7 +8,7 @@ import chisel3.RawModule
 import firrtl.AnnotationSeq
 import firrtl.stage.RunFirrtlTransformAnnotation
 
-import freechips.rocketchip.transforms.naming.{OverrideDesiredNameAnnotation, RenameDesiredNames}
+import freechips.rocketchipRT.transforms.naming.{OverrideDesiredNameAnnotation, RenameDesiredNames}
 
 /** An aspect that renames modules
   *

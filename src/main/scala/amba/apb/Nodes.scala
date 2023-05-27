@@ -1,11 +1,11 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.amba.apb
+package freechips.rocketchipRT.amba.apb
 
 import Chisel._
 import chisel3.internal.sourceinfo.SourceInfo
-import freechips.rocketchip.config.{Parameters, Field}
-import freechips.rocketchip.diplomacy._
+import freechips.rocketchipRT.config.{Parameters, Field}
+import freechips.rocketchipRT.diplomacy._
 
 case object APBMonitorBuilder extends Field[APBMonitorArgs => APBMonitorBase]
 

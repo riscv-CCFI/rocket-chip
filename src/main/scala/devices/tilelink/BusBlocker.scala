@@ -1,12 +1,12 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.devices.tilelink
+package freechips.rocketchipRT.devices.tilelink
 
 import chisel3._
-import freechips.rocketchip.config.Parameters
-import freechips.rocketchip.diplomacy.{AddressSet, LazyModule, LazyModuleImp, SimpleDevice}
-import freechips.rocketchip.regmapper.{RegField, RegFieldDesc}
-import freechips.rocketchip.tilelink.{TLFragmenter, TLRegisterNode, TLBusWrapper, TLNameNode, TLNode}
+import freechips.rocketchipRT.config.Parameters
+import freechips.rocketchipRT.diplomacy.{AddressSet, LazyModule, LazyModuleImp, SimpleDevice}
+import freechips.rocketchipRT.regmapper.{RegField, RegFieldDesc}
+import freechips.rocketchipRT.tilelink.{TLFragmenter, TLRegisterNode, TLBusWrapper, TLNameNode, TLNode}
 
 /** Parameterize a BasicBusBlocker.
   *

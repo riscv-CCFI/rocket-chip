@@ -1,13 +1,13 @@
 // See LICENSE for license details.
-package freechips.rocketchip.regmapper
+package freechips.rocketchipRT.regmapper
 
 import Chisel._
-import freechips.rocketchip.util.{AsyncResetRegVec, SimpleRegIO}
+import freechips.rocketchipRT.util.{AsyncResetRegVec, SimpleRegIO}
 
 object DescribedReg {
-  import freechips.rocketchip.regmapper.RegFieldAccessType._
-  import freechips.rocketchip.regmapper.RegFieldWrType._
-  import freechips.rocketchip.regmapper.RegFieldRdAction._
+  import freechips.rocketchipRT.regmapper.RegFieldAccessType._
+  import freechips.rocketchipRT.regmapper.RegFieldWrType._
+  import freechips.rocketchipRT.regmapper.RegFieldRdAction._
 
   def apply[T <: Data](
     gen: => T,

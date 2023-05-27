@@ -1,9 +1,9 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.util
+package freechips.rocketchipRT.util
 
 import chisel3._
-import freechips.rocketchip.config.{Field, Parameters}
+import freechips.rocketchipRT.config.{Field, Parameters}
 
 case object ClockGateImpl extends Field[() => ClockGate](() => new EICG_wrapper)
 

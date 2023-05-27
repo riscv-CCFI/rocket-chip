@@ -1,6 +1,6 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.diplomaticobjectmodel.model
+package freechips.rocketchipRT.diplomaticobjectmodel.model
 
 sealed trait OMPrivilegeMode extends OMEnum
 case object OMMachineMode extends OMPrivilegeMode

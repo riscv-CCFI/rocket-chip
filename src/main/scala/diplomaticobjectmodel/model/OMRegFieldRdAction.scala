@@ -1,6 +1,6 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.diplomaticobjectmodel.model
+package freechips.rocketchipRT.diplomaticobjectmodel.model
 
 sealed trait OMRegFieldRdAction extends OMEnum
 case object RFRA_CLEAR  extends OMRegFieldRdAction

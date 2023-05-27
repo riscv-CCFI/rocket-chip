@@ -1,20 +1,20 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.tile
+package freechips.rocketchipRT.tile
 
 import Chisel._
 
-import freechips.rocketchip.config._
-import freechips.rocketchip.subsystem._
-import freechips.rocketchip.diplomacy._
-import freechips.rocketchip.diplomaticobjectmodel.{HasLogicalTreeNode}
-import freechips.rocketchip.diplomaticobjectmodel.logicaltree.{GenericLogicalTreeNode, LogicalTreeNode}
+import freechips.rocketchipRT.config._
+import freechips.rocketchipRT.subsystem._
+import freechips.rocketchipRT.diplomacy._
+import freechips.rocketchipRT.diplomaticobjectmodel.{HasLogicalTreeNode}
+import freechips.rocketchipRT.diplomaticobjectmodel.logicaltree.{GenericLogicalTreeNode, LogicalTreeNode}
 
-import freechips.rocketchip.interrupts._
-import freechips.rocketchip.rocket._
-import freechips.rocketchip.tilelink._
-import freechips.rocketchip.util._
-import freechips.rocketchip.prci.{ClockSinkParameters}
+import freechips.rocketchipRT.interrupts._
+import freechips.rocketchipRT.rocket._
+import freechips.rocketchipRT.tilelink._
+import freechips.rocketchipRT.util._
+import freechips.rocketchipRT.prci.{ClockSinkParameters}
 
 case object TileVisibilityNodeKey extends Field[TLEphemeralNode]
 case object TileKey extends Field[TileParams]

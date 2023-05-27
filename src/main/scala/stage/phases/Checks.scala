@@ -1,11 +1,11 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.stage.phases
+package freechips.rocketchipRT.stage.phases
 
 import firrtl.AnnotationSeq
 import firrtl.annotations.Annotation
 import firrtl.options.{OptionsException, Phase, PreservesAll, TargetDirAnnotation}
-import freechips.rocketchip.stage._
+import freechips.rocketchipRT.stage._
 
 import scala.collection.mutable
 

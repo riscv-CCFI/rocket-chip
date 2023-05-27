@@ -1,13 +1,13 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.tilelink
+package freechips.rocketchipRT.tilelink
 
 import Chisel._
-import freechips.rocketchip.config.Parameters
-import freechips.rocketchip.diplomacy._
-import freechips.rocketchip.util._
-import freechips.rocketchip.amba.axi4._
-import freechips.rocketchip.amba._
+import freechips.rocketchipRT.config.Parameters
+import freechips.rocketchipRT.diplomacy._
+import freechips.rocketchipRT.util._
+import freechips.rocketchipRT.amba.axi4._
+import freechips.rocketchipRT.amba._
 
 class AXI4TLStateBundle(val sourceBits: Int) extends Bundle {
   val size   = UInt(width = 4)

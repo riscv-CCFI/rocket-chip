@@ -1,8 +1,8 @@
 // See LICENSE.SiFive for license details.
-package freechips.rocketchip.prci
+package freechips.rocketchipRT.prci
 
 import chisel3._
-import freechips.rocketchip.util.RecordMap
+import freechips.rocketchipRT.util.RecordMap
 
 
 class ClockBundle(val params: ClockBundleParameters) extends Bundle

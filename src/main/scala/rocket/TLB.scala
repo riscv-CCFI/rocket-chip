@@ -1,19 +1,19 @@
 // See LICENSE.SiFive for license details.
 // See LICENSE.Berkeley for license details.
 
-package freechips.rocketchip.rocket
+package freechips.rocketchipRT.rocket
 
 import Chisel._
 import Chisel.ImplicitConversions._
 
-import freechips.rocketchip.config.{Field, Parameters}
-import freechips.rocketchip.subsystem.CacheBlockBytes
-import freechips.rocketchip.diplomacy.RegionType
-import freechips.rocketchip.tile.{CoreModule, CoreBundle}
-import freechips.rocketchip.tilelink._
-import freechips.rocketchip.util._
-import freechips.rocketchip.util.property._
-import freechips.rocketchip.devices.debug.DebugModuleKey
+import freechips.rocketchipRT.config.{Field, Parameters}
+import freechips.rocketchipRT.subsystem.CacheBlockBytes
+import freechips.rocketchipRT.diplomacy.RegionType
+import freechips.rocketchipRT.tile.{CoreModule, CoreBundle}
+import freechips.rocketchipRT.tilelink._
+import freechips.rocketchipRT.util._
+import freechips.rocketchipRT.util.property._
+import freechips.rocketchipRT.devices.debug.DebugModuleKey
 import chisel3.internal.sourceinfo.SourceInfo
 
 case object PgLevels extends Field[Int](2)

@@ -1,11 +1,11 @@
 // See LICENSE.SiFive for license details.
 
-package freechips.rocketchip.regmapper
+package freechips.rocketchipRT.regmapper
 
 import Chisel.Data
 import chisel3.util.{isPow2}
-import freechips.rocketchip.config.Parameters
-import freechips.rocketchip.diplomacy._
+import freechips.rocketchipRT.config.Parameters
+import freechips.rocketchipRT.diplomacy._
 
 /** Parameters which apply to any RegisterRouter. */
 case class RegisterRouterParams(

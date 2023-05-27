@@ -1,19 +1,19 @@
 // See LICENSE.SiFive for license details.
 // See LICENSE.Berkeley for license details.
 
-package freechips.rocketchip.tile
+package freechips.rocketchipRT.tile
 
 import Chisel._
-import freechips.rocketchip.config._
-import freechips.rocketchip.devices.tilelink._
-import freechips.rocketchip.diplomacy._
-import freechips.rocketchip.diplomaticobjectmodel.logicaltree.{DCacheLogicalTreeNode, LogicalModuleTree, RocketLogicalTreeNode, UTLBLogicalTreeNode}
-import freechips.rocketchip.interrupts._
-import freechips.rocketchip.tilelink._
-import freechips.rocketchip.rocket._
-import freechips.rocketchip.subsystem.TileCrossingParamsLike
-import freechips.rocketchip.util._
-import freechips.rocketchip.prci.{ClockSinkParameters}
+import freechips.rocketchipRT.config._
+import freechips.rocketchipRT.devices.tilelink._
+import freechips.rocketchipRT.diplomacy._
+import freechips.rocketchipRT.diplomaticobjectmodel.logicaltree.{DCacheLogicalTreeNode, LogicalModuleTree, RocketLogicalTreeNode, UTLBLogicalTreeNode}
+import freechips.rocketchipRT.interrupts._
+import freechips.rocketchipRT.tilelink._
+import freechips.rocketchipRT.rocket._
+import freechips.rocketchipRT.subsystem.TileCrossingParamsLike
+import freechips.rocketchipRT.util._
+import freechips.rocketchipRT.prci.{ClockSinkParameters}
 
 
 case class RocketTileParams(
