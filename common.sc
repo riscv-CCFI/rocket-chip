@@ -72,7 +72,7 @@ trait CommonRocketChip extends SbtModule with PublishModule {
   ) else Agg.empty[Dep]
 
   override def mainClass = T {
-    Some("freechips.rocketchip.system.Generator")
+    Some("freechips.rocketchipRT.system.Generator")
   }
 
   override def moduleDeps = Seq(macros) ++ chisel3Module :+ hardfloatModule :+ configModule

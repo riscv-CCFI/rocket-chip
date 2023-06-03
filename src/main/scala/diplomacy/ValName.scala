@@ -2,7 +2,7 @@
 
 package freechips.rocketchipRT.diplomacy
 
-import freechips.rocketchip.macros.ValNameImpl
+import freechips.rocketchipRT.macros.ValNameImpl
 
 case class ValName(name: String)
 

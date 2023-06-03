@@ -35,7 +35,7 @@ object hardfloatRocket extends hardfloat.build.hardfloat {
   ) else Agg.empty[Dep]
 }
 
-object rocketchip extends common.CommonRocketChip {
+object rocketchipRT extends common.CommonRocketChip {
   m =>
   override def scalaVersion: T[String] = T {
     "2.12.10"

@@ -7,8 +7,8 @@ import java.io.File
 import chisel3.aop.injecting.InjectingAspect
 import chisel3._
 import firrtl.options.TargetDirAnnotation
-import freechips.rocketchip.stage.{ConfigsAnnotation, TopModuleAnnotation}
-import freechips.rocketchip.system.{RocketChipStage, TestHarness}
+import freechips.rocketchipRT.stage.{ConfigsAnnotation, TopModuleAnnotation}
+import freechips.rocketchipRT.system.{RocketChipStage, TestHarness}
 import org.scalatest.flatspec.AnyFlatSpec
 
 /** run via SBT with
@@ -21,7 +21,7 @@ class StageGeneratorSpec extends AnyFlatSpec {
 
   val dummyAspect = InjectingAspect(
     {dut: TestHarness => Seq(dut.dut)},
-    {dut: freechips.rocketchip.system.ExampleRocketSystemModuleImp[freechips.rocketchip.system.ExampleRocketSystem] =>
+    {dut: freechips.rocketchipRT.system.ExampleRocketSystemModuleImp[freechips.rocketchipRT.system.ExampleRocketSystem] =>
       val dummyWire = Wire(UInt(3.W)).suggestName("hello")
       dummyWire := 5.U
       dontTouch(dummyWire)
@@ -35,8 +35,8 @@ class StageGeneratorSpec extends AnyFlatSpec {
 
     new RocketChipStage().run(Seq(
       new TargetDirAnnotation(dirName),
-      new TopModuleAnnotation(Class.forName("freechips.rocketchip.system.TestHarness")),
-      new ConfigsAnnotation(Seq("freechips.rocketchip.system.DefaultConfig")),
+      new TopModuleAnnotation(Class.forName("freechips.rocketchipRT.system.TestHarness")),
+      new ConfigsAnnotation(Seq("freechips.rocketchipRT.system.DefaultConfig")),
       dummyAspect
     ))
   }

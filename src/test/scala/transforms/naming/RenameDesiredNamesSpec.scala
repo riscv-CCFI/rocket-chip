@@ -1,13 +1,13 @@
 // See LICENSE for license details.
 
-package freechips.rocketchip.transforms.naming
+package freechips.rocketchipRT.transforms.naming
 
 import firrtl._
 import firrtl.annotations._
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.propspec.AnyPropSpec
 
-import freechips.rocketchip.linting.rule.DesiredNameAnnotation
+import freechips.rocketchipRT.linting.rule.DesiredNameAnnotation
 
 case class StableNameAnnotation(target: IsModule) extends SingleTargetAnnotation[IsModule] {
   def duplicate(newTarget: IsModule): StableNameAnnotation = this.copy(target = newTarget)

@@ -1,14 +1,14 @@
 // See LICENSE for license details.
 
-package freechips.rocketchip.linting.rule
+package freechips.rocketchipRT.linting.rule
 
 import firrtl._
 import firrtl.annotations._
 import org.scalatest.matchers.should.Matchers
 import org.scalatest.propspec.AnyPropSpec
 
-import freechips.rocketchip.linting.Violation
-import freechips.rocketchip.transforms.naming.{OverrideDesiredNameAnnotation, RenameDesiredNames}
+import freechips.rocketchipRT.linting.Violation
+import freechips.rocketchipRT.transforms.naming.{OverrideDesiredNameAnnotation, RenameDesiredNames}
 
 class LintConflictingModuleNamesSpec extends AnyPropSpec with Matchers {
   val transform = new LintConflictingModuleNames

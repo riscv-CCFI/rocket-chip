@@ -4,10 +4,10 @@ $(error Please set environment variable RISCV. Please take a look at README)
 endif
 
 MODEL ?= TestHarness
-PROJECT ?= freechips.rocketchip.system
+PROJECT ?= freechips.rocketchipRT.system
 CFG_PROJECT ?= $(PROJECT)
 CONFIG ?= $(CFG_PROJECT).DefaultConfig
-# TODO: For now must match rocketchip.Generator
+# TODO: For now must match rocketchipRT.Generator
 comma := ,
 space := $() $()
 splitConfigs := $(subst $(comma), ,$(CONFIG))
