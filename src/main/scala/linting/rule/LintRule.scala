@@ -52,7 +52,7 @@ abstract class LintRule extends Transform with RegisteredLibrary with Dependency
 
   lazy val options = Seq(
     new ShellOption[String](
-      longOption = s"lint-whitelist:$lintName",
+      longOption = s"",
       toAnnotationSeq = {
         case whitelist: String => Seq(
           RunFirrtlTransformAnnotation(this),
