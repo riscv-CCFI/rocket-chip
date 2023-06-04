@@ -11,7 +11,7 @@ import freechips.rocketchip.diplomacy._
 import freechips.rocketchip.rocket._
 import freechips.rocketchip.tile._
 import freechips.rocketchip.util._
-
+import PARoCCAccel._
 class BaseSubsystemConfig extends Config ((site, here, up) => {
   // Tile parameters
   case PgLevels => if (site(XLen) == 64) 3 /* Sv39 */ else 2 /* Sv32 */
@@ -51,6 +51,16 @@ class WithJustOneBus extends Config((site, here, up) => {
   case TLNetworkTopologyLocated(InSubsystem) => List(
     JustOneBusTopologyParams(sbus = site(SystemBusKey))
   )
+})
+
+class WithPARoCCAccel extends Config((site,here,up) => {
+    case BuildRoCC => Seq(
+        (p:Parameters) => {
+            val regWidth = 64    
+            val lcmAccel = LazyModule(new PARoCCAccel(OpcodeSet.custom0, regWidth)(p))
+            lcmAccel
+        }
+    )
 })
 
 class WithIncoherentBusTopology extends Config((site, here, up) => {
