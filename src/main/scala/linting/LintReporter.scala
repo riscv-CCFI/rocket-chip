@@ -17,7 +17,7 @@ final class LintReporter extends Transform with RegisteredLibrary with Dependenc
 
   lazy val options = Seq(
     new ShellOption[String](
-      longOption = s"lint",
+      longOption = s"",
       toAnnotationSeq = {
         case "*" => RunFirrtlTransformAnnotation(this) +: (Linter.lintMap.values.map(RunFirrtlTransformAnnotation(_)).toSeq)
         case other => RunFirrtlTransformAnnotation(this) +: (other.split(',').toSeq.map { s =>
@@ -31,7 +31,7 @@ final class LintReporter extends Transform with RegisteredLibrary with Dependenc
       helpValueName = Some("[*]|[<lintRule>,<lintRule>,...]")
     ),
     new ShellOption[String](
-      longOption = "lint-options",
+      longOption = "",
       toAnnotationSeq = { arg: String =>
         val displayOptions = arg.split(',').toSeq.foldLeft(DisplayOptions()) { (opt, str) =>
           str match {
