@@ -50,9 +50,9 @@ abstract class LintRule extends Transform with RegisteredLibrary with Dependency
   }.toSet
 
 
-  /*lazy val options = Seq(
+  lazy val options = Seq(
     new ShellOption[String](
-      longOption = s"lint-whitelist:$lintName",
+      //longOption = s"lint-whitelist:$lintName",
       toAnnotationSeq = {
         case whitelist: String => Seq(
           RunFirrtlTransformAnnotation(this),
@@ -62,7 +62,7 @@ abstract class LintRule extends Transform with RegisteredLibrary with Dependency
       helpText = "Enable linting anonymous registers for all files except provided files.",
       helpValueName = Some("<filename1>.scala[,<filename2>.scala]*")
     )
-  )*/
+  )
 
   // Run lint rules after deduplication
   override def optionalPrerequisites: Seq[Dependency[Transform]] = Seq(Dependency[firrtl.transforms.DedupModules])
